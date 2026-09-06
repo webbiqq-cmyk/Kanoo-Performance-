@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build Your Kanoo — Configurator</title>
+<meta name="description" content="Configure a BMW M4, Mercedes S-Class or AMG G63 with body kits, ECU tuning, wheels, wraps &amp; more, then send your build straight to Kanoo Performance." />
+<link rel="stylesheet" href="css/style.css" />
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<div class="carbon-bg"><div class="grid-overlay"></div></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M14 4L6 12L14 20" stroke="#ff2b39" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 4L11 12L19 20" stroke="#f3f3f6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-name">KANOO PERFORMANCE<small>Concept Demo · Tubli, Bahrain</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#gallery">Builds</a>
+      <a href="configurator.html" class="active">Build Yours</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn btn-primary btn-sm" href="tel:+97317780555">Call Us</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="cfg-head">
+  <div class="container">
+    <div class="eyebrow">Build Configurator</div>
+    <h1 style="font-family:var(--font-display); text-transform:uppercase; font-size:clamp(30px,4.6vw,50px); margin-top:12px; max-width:16ch;">
+      Build your <span style="background:var(--grad-accent); -webkit-background-clip:text; background-clip:text; color:transparent;">Kanoo</span>
+    </h1>
+    <p style="color:var(--text-dim); margin-top:14px; max-width:60ch; font-size:16px;">
+      Pick a platform, spec the kit, the tune, the wheels and the finish — the stage updates live, and your full
+      build sheet goes straight to our team when you're ready.
+    </p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+
+    <div class="model-picker">
+      <button type="button" class="model-card active" data-model="m4">
+        <div class="m-eyebrow">Coupe · Sports</div>
+        <h3>BMW M4 Competition</h3>
+        <p>S58 3.0L Twin-Turbo I6 · 503 hp base</p>
+      </button>
+      <button type="button" class="model-card" data-model="sclass">
+        <div class="m-eyebrow">Sedan · Flagship</div>
+        <h3>Mercedes-Benz S-Class</h3>
+        <p>Inline-6 Hybrid Turbo · 429 hp base</p>
+      </button>
+      <button type="button" class="model-card" data-model="g63">
+        <div class="m-eyebrow">SUV · Off-Road Icon</div>
+        <h3>Mercedes-AMG G63</h3>
+        <p>4.0L Bi-Turbo V8 · 577 hp base</p>
+      </button>
+    </div>
+
+    <div class="cfg-shell">
+      <!-- ------------------------------------------------ OPTIONS COLUMN -->
+      <div>
+        <div style="margin-bottom:18px;">
+          <span class="mono-tag">Now Configuring</span>
+          <h2 id="cfg-model-name" style="font-size:26px; margin-top:4px;">BMW M4 Competition</h2>
+          <p id="cfg-model-tag" style="color:var(--text-dim); font-size:13.5px; margin-top:2px;">S58 3.0L Twin-Turbo I6</p>
+        </div>
+
+        <div class="cfg-tabs">
+          <button type="button" class="cfg-tab active" data-panel="panel-ext">Exterior</button>
+          <button type="button" class="cfg-tab" data-panel="panel-perf">Performance</button>
+          <button type="button" class="cfg-tab" data-panel="panel-wheels">Wheels &amp; Tires</button>
+          <button type="button" class="cfg-tab" data-panel="panel-finish">Finish &amp; Protection</button>
+        </div>
+
+        <div id="panel-ext" class="cfg-panel active">
+          <div class="opt-group"><h4>Body Kit</h4><div class="opt-cards" id="grp-kit"></div></div>
+          <div class="opt-group"><h4>Aero / Spoiler</h4><div class="opt-cards" id="grp-wing"></div></div>
+          <div class="opt-group"><h4>Exhaust System</h4><div class="opt-cards" id="grp-exhaust"></div></div>
+        </div>
+
+        <div id="panel-perf" class="cfg-panel">
+          <div class="opt-group"><h4>ECU Tune Stage</h4><div class="opt-cards" id="grp-ecu"></div></div>
+          <div class="opt-group"><h4>Suspension</h4><div class="opt-cards" id="grp-susp"></div></div>
+          <div class="opt-group"><h4>Intake</h4><div class="opt-cards" id="grp-intake"></div></div>
+          <div class="opt-group"><h4>Brakes</h4><div class="opt-cards" id="grp-brakes"></div></div>
+        </div>
+
+        <div id="panel-wheels" class="cfg-panel">
+          <div class="opt-group"><h4>Wheel Style</h4><div class="opt-cards" id="grp-wstyle"></div></div>
+          <div class="opt-group"><h4>Wheel Size</h4><div class="opt-cards" id="grp-wsize"></div></div>
+          <div class="opt-group"><h4>Wheel Finish</h4><div class="swatches" id="grp-wfinish"></div></div>
+          <div class="opt-group"><h4>Tires</h4><div class="opt-cards" id="grp-tires"></div></div>
+        </div>
+
+        <div id="panel-finish" class="cfg-panel">
+          <div class="opt-group"><h4>Paint / Wrap Finish</h4><div class="opt-cards" id="grp-finish"></div></div>
+          <div class="opt-group"><h4>Color</h4><div class="swatches" id="grp-color"></div></div>
+          <div class="opt-group"><h4>Paint Protection (Ziebart / LLumar)</h4><div class="opt-cards" id="grp-ppf"></div></div>
+          <div class="opt-group"><h4>Window Tint</h4><div class="opt-cards" id="grp-tint"></div></div>
+          <div class="opt-group"><h4>Interior Package</h4><div class="opt-cards" id="grp-interior"></div></div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------ STAGE COLUMN -->
+      <div class="cfg-stage">
+        <div class="stage-card">
+          <div class="stage-top"><b>Live Preview</b><span class="live-dot">Updating</span></div>
+          <div class="stage-canvas" id="stage-canvas"></div>
+          <div class="hud-row">
+            <div class="hud-cell"><b id="hud-hp">503</b><span>Est. HP</span></div>
+            <div class="hud-cell"><b id="hud-ride">0mm</b><span>Ride Δ</span></div>
+            <div class="hud-cell"><b id="hud-wheel">20"</b><span>Wheels</span></div>
+            <div class="hud-cell"><b id="hud-price">0 BD</b><span>Est. Mods</span></div>
+          </div>
+        </div>
+
+        <div class="build-sheet">
+          <h4>Build Sheet — <span id="bs-platform">BMW M4 Competition</span></h4>
+          <div class="bs-list" id="bs-list"></div>
+          <div class="bs-total"><span>Estimated Investment</span><b id="bs-total">0 BD</b></div>
+          <p class="bs-note">Estimate only — modification labor &amp; parts vary by supplier availability. Final quote confirmed by our team.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------------- INQUIRY -->
+    <div class="inquiry-wrap reveal in" id="inquiry">
+      <div class="eyebrow">Last Step</div>
+      <h2 style="margin-top:10px; font-size:26px;">Send this build to Kanoo Performance</h2>
+      <p style="color:var(--text-dim); margin-top:8px; font-size:14px;">We'll get your exact spec — kit, tune, wheels, finish — sent straight to the team on WhatsApp.</p>
+
+      <form id="inquiry-form">
+        <div class="form-grid" style="margin-top:22px;">
+          <div class="field"><label for="inq-name">Full Name</label><input id="inq-name" type="text" placeholder="e.g. Ahmed Al Khalifa" required /></div>
+          <div class="field"><label for="inq-phone">Phone / WhatsApp</label><input id="inq-phone" type="tel" placeholder="+973 3xxx xxxx" required /></div>
+          <div class="field"><label for="inq-email">Email (optional)</label><input id="inq-email" type="email" placeholder="you@email.com" /></div>
+          <div class="field"><label for="inq-contact">Preferred Contact</label>
+            <select id="inq-contact"><option>WhatsApp</option><option>Phone Call</option><option>Email</option></select>
+          </div>
+          <div class="field full"><label for="inq-notes">Additional Notes</label><textarea id="inq-notes" placeholder="Timeline, budget flexibility, reference builds, anything else the team should know…"></textarea></div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-whatsapp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z"/></svg>
+            Send via WhatsApp
+          </button>
+          <button type="button" id="copy-summary" class="btn btn-ghost">Copy Build Summary</button>
+          <a class="btn btn-ghost" href="tel:+97317780555">Call 1778 0555</a>
+        </div>
+        <p class="form-hint">Submitting opens WhatsApp with your full spec pre-filled to +973 1778 0555 — nothing is sent automatically, and no data is stored by this demo.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-bottom" style="margin-top:0; border-top:none; padding-top:0;">
+      <span>Unofficial concept demo built from public info — not an official Kanoo Performance website.</span>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="https://wa.me/message/A3GRQJTD4VRZF1" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/main.js"></script>
+<script src="js/configurator.js"></script>
+</body>
+</html>
