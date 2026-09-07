@@ -245,10 +245,15 @@ p{ margin:0; }
 }
 .hero-inner{
   position:relative; z-index:2; width:100%;
-  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
-  gap:clamp(16px,4vw,60px); align-items:center;
+  display:grid; grid-template-columns:minmax(0,0.86fr) minmax(0,1.2fr);
+  gap:clamp(8px,2vw,32px); align-items:center;
   padding-block:clamp(20px,4vh,52px);
 }
+@media (max-width:1180px) and (min-width:941px){
+  .hero-inner{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+}
+.hero-kicker{ white-space:nowrap; }
+.hero-stats b{ white-space:nowrap; }
 .hero-copy{ max-width:640px; }
 .hero-kicker{
   display:flex; align-items:center; gap:14px; margin-bottom:clamp(16px,2.6vh,26px);
@@ -289,7 +294,10 @@ p{ margin:0; }
 }
 
 /* ---- 3D car ------------------------------------------------------ */
-.hero-car{ position:relative; height:min(70svh,600px); min-height:280px; }
+.hero-car{
+  position:relative; height:min(82svh,760px); min-height:300px;
+  margin-right:clamp(-40px,-3vw,-8px);
+}
 .hero-car model-viewer{
   width:100%; height:100%; display:block;
   background:transparent; --poster-color:transparent;
@@ -528,18 +536,18 @@ p{ margin:0; }
   position:relative; aspect-ratio:5/4; background:var(--ink); overflow:hidden;
   border:1px solid var(--line);
 }
-.configure-visual .plate{ background:radial-gradient(90% 70% at 50% 40%, #1f2327, #0c0d0e); }
+.cv-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .cv-hud{
   position:absolute; left:0; right:0; bottom:0; z-index:2;
   display:grid; grid-template-columns:repeat(3,1fr);
-  border-top:1px solid rgba(255,255,255,.15);
+  border-top:1px solid rgba(255,255,255,.2);
+  background:linear-gradient(0deg, rgba(10,11,12,.92), rgba(10,11,12,.35));
+  backdrop-filter:blur(2px);
 }
-.cv-hud div{ padding:16px; border-right:1px solid rgba(255,255,255,.15); }
+.cv-hud div{ padding:15px 16px; border-right:1px solid rgba(255,255,255,.18); }
 .cv-hud div:last-child{ border-right:0; }
-.cv-hud b{ font-family:var(--font-display); font-weight:600; color:#fff; font-size:20px; display:block; }
-.cv-hud span{ font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.5); }
-.cv-car{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
-.cv-car svg{ width:74%; height:auto; filter:drop-shadow(0 30px 40px rgba(0,0,0,.5)); }
+.cv-hud b{ font-family:var(--font-display); font-weight:600; color:#fff; font-size:19px; display:block; letter-spacing:-.01em; }
+.cv-hud span{ font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.55); }
 @media (max-width:860px){ .configure-inner{ grid-template-columns:1fr; } }
 
 /* ============================================================ PROCESS */

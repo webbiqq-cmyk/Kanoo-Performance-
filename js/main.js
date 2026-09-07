@@ -75,7 +75,7 @@
   /* ---------------------------------------------------- hero 3D car */
   var car = document.getElementById("heroCar");
   if (car) {
-    var BASE_THETA = -28, BASE_PHI = 82, RADIUS = "108%";
+    var BASE_THETA = -32, BASE_PHI = 80, RADIUS = "92%";
     var userDragging = false;
     car.addEventListener("pointerdown", function () { userDragging = true; });
     // scroll nudges the orbit while the hero is on screen (unless the user is dragging)
