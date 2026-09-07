@@ -77,7 +77,8 @@
     </div>
 
     <div class="hero-car">
-      <!-- Stock model: three.js Ferrari 458 (assets/supercar.glb). Swap for a KP car anytime.
+      <!-- Stock model: Lamborghini (assets/supercar.glb, Draco+WebP, ~1.5 MB).
+           Placeholder — swap for a KP-owned / licensed model before production.
            Drag to orbit; it also turns as you scroll the hero. -->
       <model-viewer
         id="heroCar"
@@ -90,13 +91,12 @@
         interaction-prompt="none"
         environment-image="neutral"
         tone-mapping="aces"
-        shadow-intensity="1.4"
-        shadow-softness="1"
-        exposure="1"
-        camera-orbit="-32deg 80deg 105%"
-        camera-target="0m 0.35m 0m"
-        min-camera-orbit="auto 62deg auto"
-        max-camera-orbit="auto 94deg auto"
+        shadow-intensity="1.5"
+        shadow-softness="0.9"
+        exposure="1.05"
+        camera-orbit="-32deg 80deg 110%"
+        min-camera-orbit="auto 60deg auto"
+        max-camera-orbit="auto 92deg auto"
         field-of-view="30deg">
         <div class="hero-car-fallback" slot="poster">
           <svg viewBox="0 0 560 220" fill="none" aria-hidden="true">

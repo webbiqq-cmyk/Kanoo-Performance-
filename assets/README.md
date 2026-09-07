@@ -18,9 +18,10 @@ wordmark, angular ceiling light-lines). A short muted looping `<video>` also wor
 The hero right column runs a `<model-viewer>` pointed at `assets/supercar.glb`.
 Drag to orbit, it turns on scroll, gentle idle spin. SVG fallback shows while it loads.
 
-**Currently shipped:** the three.js sample "Ferrari 458" model (Draco-compressed, 1.6 MB)
-as a stand-in. Fine for the demo; **replace with a KP-owned or properly licensed model
-before production** — ideally a car KP actually builds.
+**Currently shipped:** a detailed Lamborghini Aventador, optimised to ~1.5 MB
+(Draco geometry + WebP textures via `@gltf-transform/cli optimize`). Stand-in only —
+**replace with a KP-owned or properly licensed model before production**, ideally a
+car KP actually builds. Run the same optimise step on the replacement to keep it light.
 
 To swap: drop your **.glb / .gltf** in as `assets/supercar.glb`. That's it.
 - Format: `.glb` (binary glTF), Y-up, real-world metres, centred on origin.
