@@ -92,10 +92,76 @@
         } catch (err) { /* model-viewer not ready */ }
       });
     }, { passive: true });
+    /* ---- body-colour changer ------------------------------------- */
+    var PAINT = [
+      { name: "Rosso",     hex: "#c11a17" },
+      { name: "Nero",      hex: "#16181b" },
+      { name: "Grigio",    hex: "#3b4046" },
+      { name: "Blu Notte", hex: "#122442" },
+      { name: "Verde",     hex: "#14291d" }
+    ];
+    function s2l(c) { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+    function toLin(hex) {
+      var n = parseInt(hex.slice(1), 16);
+      return [s2l((n >> 16) & 255), s2l((n >> 8) & 255), s2l(n & 255), 1];
+    }
+    var LIN = PAINT.map(function (p) { return toLin(p.hex); });
+    var body = null, paintIdx = 0, paintAnim = null, paintTimer = null;
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function animatePaint(target) {
+      if (!body) return;
+      if (paintAnim) cancelAnimationFrame(paintAnim);
+      var from = body.pbrMetallicRoughness.baseColorFactor.slice(), t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / 650, 1), e = 1 - Math.pow(1 - p, 3);
+        body.pbrMetallicRoughness.setBaseColorFactor([
+          from[0] + (target[0] - from[0]) * e,
+          from[1] + (target[1] - from[1]) * e,
+          from[2] + (target[2] - from[2]) * e, 1
+        ]);
+        if (p < 1) paintAnim = requestAnimationFrame(step);
+      }
+      paintAnim = requestAnimationFrame(step);
+    }
+    function setPaint(i, fromUser) {
+      paintIdx = (i % PAINT.length + PAINT.length) % PAINT.length;
+      animatePaint(LIN[paintIdx]);
+      var btns = document.querySelectorAll("#paintSwatches button");
+      for (var b = 0; b < btns.length; b++) {
+        btns[b].setAttribute("aria-pressed", b === paintIdx ? "true" : "false");
+      }
+      if (fromUser && paintTimer) { clearInterval(paintTimer); paintTimer = null; }
+    }
+
+    var swatchWrap = document.getElementById("paintSwatches");
+    if (swatchWrap) {
+      PAINT.forEach(function (p, i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.title = p.name;
+        b.style.background = p.hex;
+        b.setAttribute("aria-label", "Body colour: " + p.name);
+        b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+        b.addEventListener("click", function () { setPaint(i, true); });
+        swatchWrap.appendChild(b);
+      });
+    }
+
     car.addEventListener("load", function () {
       var loader = car.querySelector(".hero-car-loading");
       if (loader) loader.remove();
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      var mats = car.model ? car.model.materials : [];
+      for (var m = 0; m < mats.length; m++) {
+        if (/body/i.test(mats[m].name)) { body = mats[m]; break; }
+      }
+      if (body && !reduceMotion) {
+        paintTimer = setInterval(function () { setPaint(paintIdx + 1); }, 6000);
+      }
+
+      if (reduceMotion) return;
       car.setAttribute("auto-rotate", "");
       car.setAttribute("auto-rotate-delay", "3000");
       car.setAttribute("rotation-per-second", "6deg");

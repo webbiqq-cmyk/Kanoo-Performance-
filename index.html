@@ -7,7 +7,7 @@
 <meta name="description" content="Kanoo Performance — concept demo. Bahrain's largest and most advanced facility for tuning, customizing, fabricating and restoring hyper, luxury and sports cars. Tubli, Manama." />
 <meta property="og:title" content="Kanoo Performance — Bahrain's Supercar Workshop" />
 <meta property="og:description" content="ECU tuning, in-house dyno, custom exhaust fabrication, aero, paint, PPF and full restoration — under one roof in Tubli." />
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css?v=2" />
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -71,12 +71,12 @@
     </div>
 
     <div class="hero-car">
-      <!-- Stock model: Lamborghini Aventador SVJ (assets/supercar.glb, Draco+WebP, ~1.5 MB).
+      <!-- Stock model: Lamborghini Aventador SVJ (assets/supercar.glb?v=2, Draco+WebP, ~1.5 MB).
            Placeholder — swap for a KP-owned / licensed model before production.
            Drag to orbit; it also turns as you scroll the hero. -->
       <model-viewer
         id="heroCar"
-        src="assets/supercar.glb"
+        src="assets/supercar.glb?v=2"
         alt="Lamborghini Aventador SVJ — drag to rotate"
         loading="eager"
         camera-controls
@@ -94,6 +94,7 @@
         field-of-view="26deg">
         <div class="hero-car-loading" slot="poster" aria-hidden="true"><span></span><span></span><span></span></div>
       </model-viewer>
+      <div class="paint-swatches" id="paintSwatches" role="group" aria-label="Body colour"></div>
     </div>
   </div>
   <a class="hero-scroll" href="#about" aria-label="Scroll">
@@ -395,6 +396,6 @@
 
 <div class="toast" id="toast"></div>
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main.js?v=2"></script>
 </body>
 </html>
