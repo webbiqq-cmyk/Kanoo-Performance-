@@ -1,57 +1,57 @@
 # Kanoo Performance — Concept Demo Site
 
-An unofficial concept/demo website for **Kanoo Performance** (Tubli, Manama, Bahrain) — built from
-publicly available info: their [Instagram](https://www.instagram.com/kanooperformance/) profile,
-Google Business listing, and photos of real KP-watermarked builds shared during this session.
+An unofficial concept/demo website for **Kanoo Performance** (Tubli, Manama, Bahrain) — the
+Kingdom's largest supercar customization, tuning and restoration facility. Built from publicly
+available info: their [Instagram](https://www.instagram.com/kanooperformance/), Google Business
+listing, the Garrett Advancing Motion partnership announcement, and facility photos.
 
-**This is not the official Kanoo Performance website.** No affiliation is claimed; it's a demo of
-what a full marketing site + build configurator could look like for the brand.
+**This is not the official Kanoo Performance website.** No affiliation is claimed — it's a pitch
+demo of what a full marketing site + build configurator could look like for the brand.
+
+## Design system — "Concrete & Signal"
+
+Drawn from the real KP facility rather than the generic aftermarket-tuner look:
+
+- **Palette** — off-white workshop wall, warm-grey porcelain floor, ceiling black, with the KP
+  **signal red** used once per view (never as fill blocks).
+- **Type** — `Saira` (wide technical display, echoes the KP wordmark) + `Inter` for body.
+- **Motif** — the angular white LED light-line from the workshop ceiling, used as hero accent,
+  hover sweeps and section cuts. The `«KP` chevron before every eyebrow.
+- **Layout** — photography-forward, generous negative space, alternating dark cinematic bands and
+  bright editorial bands. Cars are the only colour.
 
 ## Pages
 
-- **`index.html`** — Home: hero, brand/partner marquee, about, services grid, recent-builds gallery,
-  CTA, location & contact, footer.
-- **`configurator.html`** — "Build Your Kanoo": pick a **BMW M4 Competition**, **Mercedes-Benz S-Class**,
-  or **Mercedes-AMG G63**, spec body kit, aero, exhaust, ECU tune, suspension, brakes, wheels, tires,
-  paint/wrap, PPF, tint and interior — with a live SVG preview, running HUD (est. HP / ride height /
-  wheel size / est. cost) and a build sheet. Submitting the inquiry form opens WhatsApp
-  (`wa.me/97317780555`) with the full spec pre-filled; "Copy Build Summary" copies it to the clipboard.
-  No data is stored or sent anywhere by this demo itself.
+- **`index.html`** — top bar, sticky nav, cinematic hero, partner marquee, statement + spec list,
+  6-tile capabilities grid, 4-panel facility gallery, filterable "Selected Work" grid, configurator
+  teaser, 4-step process, CTA band, contact (form → WhatsApp prefill), footer.
+- **`configurator.html`** — "Configure your build": BMW M4 Competition / Mercedes-Benz S-Class /
+  Mercedes-AMG G63, spec kit, aero, exhaust, ECU tune, suspension, brakes, wheels, tires,
+  paint/wrap, PPF, tint, interior — live inline-SVG preview, running HUD (est. HP / ride Δ / wheel
+  size / est. cost) and a build sheet. Submitting opens WhatsApp (`wa.me/97317780555`) with the
+  full spec pre-filled; "Copy Build Summary" copies it to the clipboard. No data is stored or sent.
 
 ## Structure
 
 ```
-index.html            Home page
-configurator.html     Build configurator + inquiry form
-css/style.css         Shared design system ("Blueprint Garage": carbon black + HUD red/amber)
-js/main.js            Nav, scroll-reveal, stat count-up (progressively enhanced — see below)
-js/configurator.js     Configurator state, pricing, SVG rendering, WhatsApp/summary generation
+index.html            Home
+configurator.html     Build configurator + inquiry
+css/style.css         Design system + both pages
+js/main.js            Nav, reveal-on-scroll, count-up, work filter, contact→WhatsApp
+js/configurator.js    Configurator state, pricing, SVG rendering, WhatsApp/summary
+assets/               Photography drop-in — see assets/README.md
 ```
 
-## Notes on the visuals
+## Photography
 
-Real KP photos were shared in chat during this build, but they exist only as inline chat content —
-there was no accessible file on disk to pull them from (checked the session's attachment/upload
-paths; none were populated). So instead of broken `<img>` tags, the gallery cards use color-matched
-CSS treatments with accurate captions for the specific vehicles shown (Civic Type R line-up in
-Service Bay 4, GT3 RS in blue livery, X5 M on the alignment rack, Lexus GX overlander, McLaren Elva
-in satin purple, plus the McLaren P1 / 1960 Corvette / Supra-on-dyno / GT3 from an earlier round).
-Drop real image files into the repo (e.g. `assets/gallery/`) and wire them into the `.g-card`
-elements in `index.html` to upgrade this to real photography — everything else is unaffected.
-
-The car preview in the configurator is custom inline SVG (paint color, kit, wing, wheel style and
-ride height all respond live to your selections) rather than photography, so it never depends on
-external assets or network access.
-
-## Progressive enhancement
-
-`.reveal` elements fade in on scroll via `IntersectionObserver`, gated behind an `html.js` class set
-by an inline script — if JavaScript fails to load for any reason, content stays fully visible by
-default rather than stuck at `opacity: 0`. A 4s timeout in `main.js` is a second safety net.
+Every image slot renders a CSS placeholder "plate" tagged with the filename it expects. Drop real
+hi-res KP photos into `assets/` and wire them in per `assets/README.md` — the layout is unchanged.
+Progressive enhancement: `.reveal` elements are visible by default and only animate when JS loads
+(`html.js` gate + 4s safety net); `prefers-reduced-motion` is respected.
 
 ## Running locally
 
-No build step — it's static HTML/CSS/JS.
+No build step — static HTML/CSS/JS.
 
 ```
 python3 -m http.server 8000

@@ -214,7 +214,7 @@
 
     var wingHTML = "";
     if (state.wing === "duck") wingHTML = isG63
-      ? '<rect x="150" y="46" width="120" height="8" rx="3" fill="#111" stroke="#ff2b39" stroke-width="1"/>'
+      ? '<rect x="150" y="46" width="120" height="8" rx="3" fill="#111" stroke="#e4231a" stroke-width="1"/>'
       : '<path d="M300 ' + (60 + (isS?6:0)) + ' q30 -6 46 4" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round"/>';
     if (state.wing === "gt") wingHTML = isG63
       ? '<rect x="120" y="40" width="200" height="10" rx="2" fill="#111"/><rect x="130" y="24" width="20" height="18" fill="#222"/><rect x="330" y="24" width="20" height="18" fill="#222"/>'
@@ -230,7 +230,7 @@
     }
 
     var exhaustHTML = '<circle cx="' + (isG63 ? 470 : 486) + '" cy="180" r="7" fill="#151517" stroke="' + color + '" stroke-width="1"/>' +
-      '<circle cx="' + (isG63 ? 470 : 486) + '" cy="180" r="10" fill="none" stroke="#ff8a1e" stroke-width="2" opacity="' + glow + '"/>';
+      '<circle cx="' + (isG63 ? 470 : 486) + '" cy="180" r="10" fill="none" stroke="#e4231a" stroke-width="2" opacity="' + glow + '"/>';
 
     var brakeHex = state.brakes === "big" ? "#e0313a" : state.brakes === "carbon" ? "#f0c419" : "#26262c";
     void brakeHex; // reserved for a future caliper-color accent pass

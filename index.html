@@ -3,34 +3,48 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kanoo Performance — Bahrain's Largest Customization &amp; Tuning Facility</title>
-<meta name="description" content="Kanoo Performance — concept demo. Bahrain's largest automotive personalization facility: body kits, wraps, ECU tuning, dyno, suspension, PPF &amp; more. Build your own spec and send an inquiry." />
+<title>Kanoo Performance — Bahrain's Supercar Workshop</title>
+<meta name="description" content="Kanoo Performance — concept demo. Bahrain's largest and most advanced facility for tuning, customizing, fabricating and restoring hyper, luxury and sports cars. Tubli, Manama." />
+<meta property="og:title" content="Kanoo Performance — Bahrain's Supercar Workshop" />
+<meta property="og:description" content="ECU tuning, in-house dyno, custom exhaust fabrication, aero, paint, PPF and full restoration — under one roof in Tubli." />
 <link rel="stylesheet" href="css/style.css" />
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<div class="carbon-bg"><div class="grid-overlay"></div></div>
+<!-- ===================================================== TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <span>Road 118 · Tubli · Kingdom of Bahrain</span>
+    <div class="topbar-right">
+      <span>Sat–Thu <b>9:00–18:00</b> · Fri closed</span>
+      <a href="tel:+97317780555"><b>+973 1778 0555</b></a>
+      <a href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</div>
 
-<!-- ============================================================ NAV -->
-<header class="nav">
+<!-- ===================================================== NAV -->
+<header class="nav" id="nav">
   <div class="nav-inner">
-    <a class="brand" href="index.html">
+    <a class="brand" href="index.html" aria-label="Kanoo Performance home">
       <span class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M14 4L6 12L14 20" stroke="#ff2b39" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 4L11 12L19 20" stroke="#f3f3f6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M20 5 L8 20 L20 35" stroke="#e4231a" stroke-width="4.5" stroke-linecap="square"/>
+          <path d="M31 5 L19 20 L31 35" stroke="currentColor" stroke-width="4.5" stroke-linecap="square"/>
+        </svg>
       </span>
-      <span class="brand-name">KANOO PERFORMANCE<small>Concept Demo · Tubli, Bahrain</small></span>
+      <span class="brand-name">Kanoo Performance<small>Tubli · Bahrain</small></span>
     </a>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#gallery">Builds</a>
-      <a href="index.html#contact">Contact</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#facility">The Facility</a>
+      <a href="configurator.html">Configure</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn btn-primary btn-sm" href="configurator.html">Build Yours</a>
+      <a class="btn btn--sm btn--solid nav-cta-book" href="#contact">Book a Consultation</a>
     </div>
     <button class="nav-burger" aria-label="Menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -38,594 +52,327 @@
   </div>
 </header>
 
-<!-- ============================================================ HERO -->
+<!-- ===================================================== HERO -->
 <section class="hero">
-  <div class="hero-scanline"></div>
+  <!-- Swap this block for: <div class="hero-media"><img src="assets/hero-workshop.jpg" alt=""></div> -->
+  <div class="hero-plate"></div>
+  <div class="hero-veil"></div>
   <div class="container">
-    <div class="hero-grid">
-      <div class="reveal in">
-        <div class="eyebrow">Kingdom of Bahrain · Tubli, Manama</div>
-        <h1>Personalization<br/>has an <span>address.</span></h1>
-        <p class="lead">Kanoo Performance is Bahrain's largest and most advanced facility for customizing, tuning and
-          maintaining hyper, luxury &amp; sports cars — body kits, wraps, dyno tuning and full-spectrum performance
-          builds under one roof.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="configurator.html">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12h18M13 6l6 6-6 6"/></svg>
-            Build Your Own Spec
-          </a>
-          <a class="btn btn-whatsapp" href="https://wa.me/message/A3GRQJTD4VRZF1" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.3-.6-2.1-1.1-3-2.5-.2-.4.2-.3.6-1.1.1-.1 0-.3 0-.4-.1-.1-.5-1.3-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.1 1.5-.1.5-.2 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.5-.3Z"/></svg>
-            Chat on WhatsApp
-          </a>
-        </div>
-
-        <div class="stat-strip">
-          <div class="stat-cell"><b data-count="196" data-suffix="K+">0</b><span>Instagram Family</span></div>
-          <div class="stat-cell"><b data-count="14800" data-suffix="+">0</b><span>Builds Documented</span></div>
-          <div class="stat-cell"><b data-count="4.6" data-decimals="1" data-suffix="★">0</b><span>Google Rating</span></div>
-          <div class="stat-cell"><b data-count="1" data-suffix="ST">0</b><span>Bahrain's Largest Facility</span></div>
-        </div>
-      </div>
-
-      <div class="hero-stage reveal in">
-        <span class="hero-tag">Live Build · BMW M4 · Widebody</span>
-        <div class="glow-floor"></div>
-        <svg viewBox="0 0 520 240" fill="none">
-          <path d="M40 178c0-8 10-14 24-14h30l18-30c8-13 26-24 46-24h96c22 0 42 10 54 26l22 28h26c14 0 24 8 24 18v10c0 8-6 14-14 14h-14a34 34 0 0 1-68 0h-116a34 34 0 0 1-68 0H54c-8 0-14-6-14-14Z"
-                fill="#1c1c22" stroke="#3a3a42" stroke-width="2"/>
-          <path d="M132 134l16-27c7-11 21-19 35-19h84c17 0 33 8 42 21l17 25" stroke="#ff2b39" stroke-width="2.5" opacity=".85"/>
-          <path d="M150 132l10-20c5-9 15-14 25-14h64c11 0 21 6 27 15l12 19" fill="#0a0a0c" stroke="#ff2b39" stroke-width="1.5"/>
-          <circle cx="150" cy="178" r="30" fill="#0a0a0c" stroke="#55555f" stroke-width="6"/>
-          <circle cx="150" cy="178" r="13" fill="#26262c" stroke="#ff2b39" stroke-width="2"/>
-          <circle cx="366" cy="178" r="30" fill="#0a0a0c" stroke="#55555f" stroke-width="6"/>
-          <circle cx="366" cy="178" r="13" fill="#26262c" stroke="#ff2b39" stroke-width="2"/>
-          <rect x="30" y="176" width="18" height="6" rx="3" fill="#ff2b39" opacity=".8"/>
-          <rect x="472" y="176" width="18" height="6" rx="3" fill="#ff8a1e"/>
-        </svg>
-      </div>
+    <div class="hero-kicker">Kingdom of Bahrain — Est. Kanoo Motors</div>
+    <h1>Bahrain's <span class="thin">supercar</span> <span class="sig">workshop.</span></h1>
+    <p class="hero-lead">
+      The largest and most advanced facility of its kind in the Kingdom — ECU tuning, in-house
+      rolling-road dyno, hand-built exhaust systems, aero, paint and full restoration. Bring us
+      the car.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn--solid-light" href="#contact">Book a Consultation</a>
+      <a class="btn btn--light" href="#work">See Recent Builds</a>
+    </div>
+    <div class="hero-foot">
+      <div class="cell"><b data-count="5738" data-suffix=" m²">5,738 m²</b><span>Purpose-Built Facility</span></div>
+      <div class="cell"><b data-count="9" data-suffix="+">9+</b><span>Dedicated Service Bays</span></div>
+      <div class="cell"><b>In-House</b><span>Rolling-Road Dyno</span></div>
+      <div class="cell"><b data-count="196" data-suffix="K">196K</b><span>Instagram Community</span></div>
     </div>
   </div>
 </section>
 
-<div class="marquee-wrap">
-  <div class="marquee">
-    <span>ARB 4x4 Accessories — Official Dealer</span>
-    <span>IPD Plenums — Performance Intake Partner</span>
-    <span>Xtreme Motorsport — Authorized Dealer</span>
-    <span>Ziebart Paint Protection</span>
-    <span>LLumar Window Film</span>
-    <span>GTR R35 Specialist Workshop</span>
-    <span>In-House Engine Dyno &amp; Rolling Road</span>
-    <!-- duplicate for seamless loop -->
-    <span>ARB 4x4 Accessories — Official Dealer</span>
-    <span>IPD Plenums — Performance Intake Partner</span>
-    <span>Xtreme Motorsport — Authorized Dealer</span>
-    <span>Ziebart Paint Protection</span>
-    <span>LLumar Window Film</span>
-    <span>GTR R35 Specialist Workshop</span>
-    <span>In-House Engine Dyno &amp; Rolling Road</span>
+<!-- ===================================================== MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Garrett Advancing Motion</span><span>Hunter Engineering</span><span>McLaren Service</span>
+    <span>ARB 4×4</span><span>IPD Plenums</span><span>Xtreme Motorsport</span><span>LLumar Film</span>
+    <span>Garrett Advancing Motion</span><span>Hunter Engineering</span><span>McLaren Service</span>
+    <span>ARB 4×4</span><span>IPD Plenums</span><span>Xtreme Motorsport</span><span>LLumar Film</span>
   </div>
 </div>
 
-<!-- ============================================================ ABOUT -->
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-copy reveal">
-      <div class="eyebrow">Who We Are</div>
-      <h2 style="font-size:clamp(26px,3.6vw,38px); margin-top:12px;">The largest &amp; most advanced automotive customization facility in the Kingdom of Bahrain</h2>
-      <p>Kanoo Performance is a one-stop automotive destination for personalization and customization — the kind of
-        place where a <strong>McLaren P1</strong> gets showroom prep next to a numbers-matching <strong>1960
-        Corvette</strong> on the lift, while a <strong>Toyota Supra</strong> screams through a pull on the in-house
-        dyno and a freshly wrapped <strong>McLaren 570S</strong> rolls out in gloss Tiffany blue.</p>
-      <p>Based in Tubli, Manama, the facility is built to handle everything a hyper, luxury, sports or classic car
-        needs — regardless of make — under one roof: body work, tuning, wraps, protection and maintenance.</p>
-
-      <div class="pillar-list">
-        <div class="pillar">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13l2-6a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 6M5 13h14v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-5Z"/><circle cx="7.5" cy="16.5" r="1"/><circle cx="16.5" cy="16.5" r="1"/></svg></span>
-          <div><b>Full-Service Body Shop</b><p>Wide-body kits, panel work, painting &amp; restomod builds — from classics to modern exotics.</p></div>
-        </div>
-        <div class="pillar">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></span>
-          <div><b>In-House Dyno &amp; ECU Tuning</b><p>Engine dyno testing and rolling-road tuning on site, with live telemetry readouts.</p></div>
-        </div>
-        <div class="pillar">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H4zM8 20h8M12 16v4"/></svg></span>
-          <div><b>Official Performance Dealer</b><p>Authorized dealer for ARB, IPD Plenums &amp; Xtreme Motorsport, plus Ziebart / LLumar protection.</p></div>
-        </div>
-      </div>
-
-      <div class="badge-row">
-        <span class="badge">GTR R35 Specialist</span>
-        <span class="badge">Wraps &amp; PPF</span>
-        <span class="badge">Window Tint</span>
-        <span class="badge">Suspension &amp; Coilovers</span>
-        <span class="badge">Wheel Alignment</span>
-      </div>
-    </div>
-
-    <div class="reveal">
-      <div class="frame-card">
-        <div class="mono-tag">Reputation</div>
-        <div class="rating-row" style="margin-top:14px;">
-          <div class="rating-pill">
-            <b>4.6 / 5</b>
-            <div class="stars">★★★★★</div>
-            <span>152 Google Reviews</span>
-          </div>
-          <div class="rating-pill">
-            <b>5.0 / 5</b>
-            <div class="stars">★★★★★</div>
-            <span>Point Bahrain · 3 Reviews</span>
-          </div>
-          <div class="rating-pill">
-            <b>196K</b>
-            <div class="stars" style="color:var(--text-dim);">@kanooperformance</div>
-            <span>Instagram Followers</span>
-          </div>
-          <div class="rating-pill">
-            <b>14.8K</b>
-            <div class="stars" style="color:var(--text-dim);">Posted Builds</div>
-            <span>Documented Projects</span>
-          </div>
-        </div>
-        <p style="margin-top:20px; color:var(--text-dim); font-size:13.5px; border-top:1px solid var(--line); padding-top:16px;">
-          "The largest &amp; most advanced facility in the Kingdom of Bahrain to customize &amp; maintain your hyper,
-          luxury, &amp; sports cars." — Kanoo Performance
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ SERVICES -->
-<section id="services">
+<!-- ===================================================== STATEMENT -->
+<section class="section statement" id="about">
   <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">What We Do</div>
-      <h2>Every stage of a build, in one facility</h2>
-      <p>From a mild refresh to a full track-spec transformation — pick a service below, or configure a complete
-        spec in the builder.</p>
-    </div>
-
-    <div class="services-grid">
-      <div class="svc-card reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13l2-6a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 6M4 13h16v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4Z"/></svg></span>
-        <h3>Body Kits &amp; Wide-Body</h3>
-        <p>Front lips, side skirts, flared arches, diffusers &amp; wings — bolt-on or full widebody conversions.</p>
-      </div>
-      <div class="svc-card reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
-        <h3>Wraps &amp; Color Change</h3>
-        <p>Full-body gloss, satin &amp; matte color-change wraps in any finish — reversible, custom, camera-ready.</p>
-      </div>
-      <div class="svc-card reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 4 8.5 8 10 4-1.5 8-5 8-10V6l-8-4Z"/></svg></span>
-        <h3>PPF &amp; Ceramic Protection</h3>
-        <p>Ziebart &amp; LLumar paint protection film and ceramic coatings to keep every build showroom-fresh.</p>
-      </div>
-      <div class="svc-card reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></span>
-        <h3>ECU Tuning &amp; Dyno</h3>
-        <p>In-house engine dyno and rolling-road tuning, from Stage 1 remaps to full built-engine calibration.</p>
-      </div>
-      <div class="svc-card reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M3 12h4M17 12h4M4.2 19.8 7 17M17 7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg></span>
-        <h3>Suspension &amp; Coilovers</h3>
-        <p>Lowering springs, coilovers &amp; air suspension setups, corner-balanced and aligned in-house.</p>
-      </div>
-      <div class="svc-card reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.4"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg></span>
-        <h3>Wheels, Tires &amp; Alignment</h3>
-        <p>Forged &amp; concave wheel fitment, tire selection and precision 4-wheel alignment on the rack.</p>
-      </div>
-      <div class="svc-card reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l3 3v15H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
-        <h3>Performance Exhaust</h3>
-        <p>Cat-back, valvetronic &amp; full titanium systems — tuned for sound, flow and weight savings.</p>
-      </div>
-      <div class="svc-card reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 1 8 8"/><path d="M4 12v5h5"/></svg></span>
-        <h3>GTR R35 &amp; Engine Rebuilds</h3>
-        <p>Dedicated GT-R specialists, plus full engine rebuild, restoration &amp; classic-car mechanical work.</p>
-      </div>
-      <div class="svc-card reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg></span>
-        <h3>Window Tint &amp; Detailing</h3>
-        <p>Legal &amp; ceramic IR tint, full interior/exterior detailing to send every build out camera-ready.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ GALLERY -->
-<section id="gallery">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Recent Work</div>
-      <h2>Straight off the workshop floor</h2>
-      <p>Illustrated from real Kanoo Performance builds — the full photo archive lives on Instagram.</p>
-    </div>
-
-    <div class="gallery-grid">
-
-      <!-- 1. Toyota Supra A90 — Dyno Pull -->
-      <a class="g-card reveal" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">
-        <div class="g-bg">
-          <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="320" height="400" fill="#17110d"/>
-            <rect y="0" width="320" height="400" fill="url(#gDyno)"/>
-            <defs><radialGradient id="gDyno" cx="50%" cy="20%" r="75%"><stop offset="0%" stop-color="#ff8a1e" stop-opacity=".22"/><stop offset="100%" stop-color="#17110d" stop-opacity="0"/></radialGradient></defs>
-            <g stroke="#2a2016" stroke-width="1">
-              <line x1="0" y1="330" x2="120" y2="400"/><line x1="60" y1="330" x2="180" y2="400"/><line x1="120" y1="330" x2="240" y2="400"/><line x1="180" y1="330" x2="300" y2="400"/><line x1="240" y1="330" x2="320" y2="380"/>
-              <line x1="0" y1="360" x2="320" y2="360"/><line x1="0" y1="330" x2="320" y2="330"/>
-            </g>
-            <rect x="224" y="70" width="76" height="52" rx="4" fill="#0c0c0c" stroke="#3a3a3a"/>
-            <rect x="230" y="76" width="64" height="30" fill="#0a1a12"/>
-            <path d="M234 100 L246 84 L256 94 L268 78 L280 96 L290 82" stroke="#2be08a" stroke-width="1.6" fill="none"/>
-            <circle cx="238" cy="112" r="3" fill="#ff2b39"/><circle cx="248" cy="112" r="3" fill="#ff8a1e"/><circle cx="258" cy="112" r="3" fill="#2be08a"/>
-            <rect x="252" y="52" width="4" height="20" fill="#3a3a3a"/>
-            <text x="20" y="34" font-family="Rajdhani, sans-serif" font-weight="700" font-size="15" letter-spacing="2" fill="#5a4a3a">SERVICE BAY 4</text>
-            <g transform="translate(30,240)">
-              <path d="M10,58c0-6 8-10 18-10h20l13-22c7-10 19-17 32-17h60c15 0 29 7 37 18l14 21h18c11 0 18 6 18 13v7c0 6-5 10-11 10H21c-6 0-11-4-11-10Z" fill="#8a8f98" stroke="#1a1a1e" stroke-width="2"/>
-              <rect x="18" y="46" width="20" height="10" rx="3" fill="#0c0c0c"/>
-              <circle cx="110" cy="60" r="27" fill="#0a0a0c" stroke="#3a3a3a" stroke-width="6"/><circle cx="110" cy="60" r="11" fill="#1c1c20"/>
-              <circle cx="14" cy="60" r="27" fill="#0a0a0c" stroke="#3a3a3a" stroke-width="6"/><circle cx="14" cy="60" r="11" fill="#1c1c20"/>
-              <rect x="150" y="58" width="14" height="6" rx="3" fill="#ff8a1e"/>
-              <rect x="-6" y="30" width="8" height="34" fill="#7a1e1e" opacity=".85"/>
-            </g>
-            <text x="20" y="382" font-family="Rajdhani, sans-serif" font-weight="700" font-size="12" letter-spacing="1.5" fill="#ff8a1e" opacity=".8">«KP</text>
-          </svg>
-        </div>
-        <span class="g-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        <div><div class="g-tag">Dyno &amp; ECU Tuning</div><h4>Toyota Supra A90 — Rolling Road Pull</h4></div>
-      </a>
-
-      <!-- 2. McLaren P1 — Showroom Detail -->
-      <a class="g-card reveal" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">
-        <div class="g-bg">
-          <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="320" height="400" fill="#0d0d10"/>
-            <defs><radialGradient id="gP1" cx="50%" cy="30%" r="80%"><stop offset="0%" stop-color="#ff8a1e" stop-opacity=".16"/><stop offset="100%" stop-color="#0d0d10" stop-opacity="0"/></radialGradient></defs>
-            <rect width="320" height="400" fill="url(#gP1)"/>
-            <g stroke="#26262c" stroke-width="1" opacity=".8">
-              <line x1="0" y1="300" x2="60" y2="400"/><line x1="70" y1="300" x2="130" y2="400"/><line x1="140" y1="300" x2="200" y2="400"/><line x1="210" y1="300" x2="270" y2="400"/><line x1="280" y1="300" x2="320" y2="370"/>
-            </g>
-            <!-- blurred cars behind -->
-            <path d="M0 250c20-16 60-16 80 0" fill="none" stroke="#274d8a" stroke-width="16" opacity=".5" stroke-linecap="round"/>
-            <path d="M230 246c26-14 66-10 90 6" fill="none" stroke="#e0e0e6" stroke-width="16" opacity=".4" stroke-linecap="round"/>
-            <path d="M250 216 L296 208 L300 224 L252 232 Z" fill="#c8202e" opacity=".55"/>
-            <!-- P1 -->
-            <g transform="translate(28,232)">
-              <path d="M25,64c0-5 6-9 14-9h18l10-15c8-12 24-20 42-20h108c14 0 26 8 33 19l9 16h20c9 0 16 4 16 9v6c0 5-4 9-9 9H34c-5 0-9-4-9-9Z" fill="#ff8a1e" stroke="#1a0f04" stroke-width="2"/>
-              <path d="M74 20c8-11 22-19 38-19h84c13 0 24 6 31 16" fill="none" stroke="#120a04" stroke-width="10" opacity=".9"/>
-              <path d="M90 22c5-7 14-12 24-12h60c8 0 16 4 21 10" fill="#0a0a0c"/>
-              <circle cx="90" cy="66" r="24" fill="#0a0a0c" stroke="#3a3a3a" stroke-width="6"/><circle cx="90" cy="66" r="9" fill="#1c1c20"/>
-              <circle cx="216" cy="66" r="24" fill="#0a0a0c" stroke="#3a3a3a" stroke-width="6"/><circle cx="216" cy="66" r="9" fill="#1c1c20"/>
-              <rect x="4" y="30" width="8" height="30" fill="#160c04"/>
-              <rect x="228" y="8" width="60" height="6" rx="3" fill="#0c0c0c"/>
-              <rect x="230" y="-2" width="14" height="12" fill="#0c0c0c"/><rect x="272" y="-2" width="14" height="12" fill="#0c0c0c"/>
-            </g>
-            <rect x="18" y="330" width="70" height="16" rx="3" fill="#0e0e0e" stroke="#ff2b39" stroke-width="1"/>
-            <text x="26" y="342" font-family="Rajdhani, sans-serif" font-weight="700" font-size="10" letter-spacing="1" fill="#ff2b39">«KP</text>
-          </svg>
-        </div>
-        <span class="g-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        <div><div class="g-tag">Hypercar Showroom Prep</div><h4>McLaren P1 — Detail &amp; Care</h4></div>
-      </a>
-
-      <!-- 3. 1960 Corvette C1 — Full Mechanical -->
-      <a class="g-card reveal" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">
-        <div class="g-bg">
-          <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="320" height="400" fill="#120a0a"/>
-            <defs><radialGradient id="gVette" cx="50%" cy="35%" r="75%"><stop offset="0%" stop-color="#e0313a" stop-opacity=".2"/><stop offset="100%" stop-color="#120a0a" stop-opacity="0"/></radialGradient></defs>
-            <rect width="320" height="400" fill="url(#gVette)"/>
-            <rect x="120" y="40" width="10" height="220" fill="#3a3a3a"/>
-            <rect x="230" y="40" width="10" height="220" fill="#3a3a3a"/>
-            <rect x="60" y="40" width="200" height="10" fill="#3a3a3a"/>
-            <g transform="translate(50,150) rotate(-6)">
-              <path d="M10 84c0-6 6-10 15-10h6c3-15 14-27 30-27h130c14 0 25 9 29 22h16c9 0 16 5 16 12v5c0 6-5 10-11 10H22c-7 0-12-5-12-10Z" fill="#c8202e" stroke="#3a0d0f" stroke-width="2"/>
-              <path d="M70 47c6-9 16-16 28-16h60" fill="none" stroke="#f2eee6" stroke-width="8"/>
-              <circle cx="70" cy="88" r="20" fill="#e9e5da"/><circle cx="70" cy="88" r="20" fill="none" stroke="#8a8478" stroke-width="4"/><circle cx="70" cy="88" r="6" fill="#2a2a2a"/>
-              <circle cx="188" cy="88" r="20" fill="#e9e5da"/><circle cx="188" cy="88" r="20" fill="none" stroke="#8a8478" stroke-width="4"/><circle cx="188" cy="88" r="6" fill="#2a2a2a"/>
-              <rect x="4" y="60" width="6" height="20" fill="#e9e5da"/>
-            </g>
-            <rect x="60" y="330" width="200" height="6" fill="#2a2a2a"/>
-            <rect x="60" y="336" width="10" height="30" fill="#8a8f98"/><rect x="250" y="336" width="10" height="30" fill="#8a8f98"/>
-            <circle cx="160" cy="368" r="18" fill="none" stroke="#1a1a1a" stroke-width="10"/>
-            <text x="20" y="34" font-family="Rajdhani, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#8a5a4a" opacity=".8">FULL LIFT SERVICE</text>
-            <text x="24" y="380" font-family="Rajdhani, sans-serif" font-weight="700" font-size="11" letter-spacing="1" fill="#ff2b39">«KP</text>
-          </svg>
-        </div>
-        <span class="g-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        <div><div class="g-tag">Classic Restoration</div><h4>1960 Corvette C1 — Full Mechanical</h4></div>
-      </a>
-
-      <!-- 4. Porsche 911 GT3 — Alignment -->
-      <a class="g-card reveal" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">
-        <div class="g-bg">
-          <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="320" height="400" fill="#0a0a0c"/>
-            <defs><linearGradient id="gGT3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#26262c"/><stop offset="100%" stop-color="#0a0a0c"/></linearGradient></defs>
-            <rect width="320" height="260" fill="url(#gGT3)"/>
-            <rect x="0" y="260" width="320" height="140" fill="#151517"/>
-            <line x1="0" y1="280" x2="320" y2="280" stroke="#2a2a30"/><line x1="0" y1="300" x2="320" y2="300" stroke="#2a2a30"/>
-            <rect x="40" y="288" width="240" height="14" rx="3" fill="#2a5aa0" opacity=".8"/>
-            <g transform="translate(34,206)">
-              <path d="M20,74c0-6 8-11 18-11h20l12-20c7-11 21-18 35-18h74c16 0 30 8 38 21l12 18h18c11 0 18 6 18 12v6c0 6-5 11-11 11H31c-6 0-11-5-11-11Z" fill="#0e0e10" stroke="#3a3a3a" stroke-width="2"/>
-              <path d="M226 24c-2-10-10-18-20-18" fill="none"/>
-              <rect x="200" y="-6" width="70" height="8" rx="3" fill="#1a1a1e"/>
-              <rect x="204" y="-22" width="8" height="18" fill="#4a4a4a"/><rect x="262" y="-22" width="8" height="18" fill="#4a4a4a"/>
-              <circle cx="94" cy="78" r="25" fill="#0a0a0c" stroke="#274d8a" stroke-width="5"/><circle cx="94" cy="78" r="10" fill="#1c1c20"/>
-              <circle cx="0" cy="0" r="3" fill="#ff2b39" transform="translate(94,78)"/>
-              <circle cx="212" cy="78" r="25" fill="#0a0a0c" stroke="#274d8a" stroke-width="5"/><circle cx="212" cy="78" r="10" fill="#1c1c20"/>
-              <!-- alignment sensor targets -->
-              <rect x="76" y="40" width="10" height="26" rx="2" fill="#1a1a1a" stroke="#ff8a1e"/>
-              <rect x="194" y="40" width="10" height="26" rx="2" fill="#1a1a1a" stroke="#ff8a1e"/>
-            </g>
-            <text x="20" y="34" font-family="Rajdhani, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#5a6a8a">4-WHEEL ALIGNMENT</text>
-            <text x="20" y="382" font-family="Rajdhani, sans-serif" font-weight="700" font-size="11" letter-spacing="1" fill="#ff2b39">«KP</text>
-          </svg>
-        </div>
-        <span class="g-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        <div><div class="g-tag">Alignment &amp; Track Setup</div><h4>Porsche 911 GT3 — 4-Wheel Alignment</h4></div>
-      </a>
-
-      <!-- 5. Service Bay 4 — Hot-Hatch Line-Up -->
-      <a class="g-card reveal" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">
-        <div class="g-bg">
-          <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="320" height="400" fill="#131316"/>
-            <rect width="320" height="180" fill="#1c1c21"/>
-            <text x="30" y="70" font-family="Rajdhani, sans-serif" font-weight="700" font-size="24" letter-spacing="3" fill="#3a3a40">KANOO</text>
-            <g stroke="#e9e9ee" stroke-width="3" opacity=".85">
-              <path d="M40 20 h100 v14 h-100 Z" fill="none"/><path d="M170 34 h100 v14 h-100 v-14" fill="none"/>
-            </g>
-            <g stroke="#26262c" stroke-width="1">
-              <line x1="0" y1="300" x2="70" y2="400"/><line x1="80" y1="300" x2="150" y2="400"/><line x1="160" y1="300" x2="230" y2="400"/><line x1="240" y1="300" x2="310" y2="400"/>
-            </g>
-            <g transform="translate(20,255)">
-              <path d="M10,58c0-6 7-10 16-10h14l11-18c6-10 18-16 30-16h58c13 0 24 7 30 17l10 17h16c9 0 16 5 16 11v5c0 6-5 10-10 10H20c-5 0-10-4-10-10Z" fill="#e9e9ee" stroke="#1a1a1e" stroke-width="2"/>
-              <circle cx="42" cy="60" r="21" fill="#0a0a0c" stroke="#3a3a3a" stroke-width="5"/><circle cx="42" cy="60" r="8" fill="#c8202e"/>
-              <circle cx="150" cy="60" r="21" fill="#0a0a0c" stroke="#3a3a3a" stroke-width="5"/><circle cx="150" cy="60" r="8" fill="#c8202e"/>
-              <rect x="176" y="12" width="16" height="8" fill="#1a1a1a"/>
-            </g>
-            <g transform="translate(150,262)">
-              <path d="M10,50c0-5 6-9 14-9h12l9-15c5-8 15-14 26-14h50c11 0 20 6 26 14l9 15h13c8 0 14 4 14 9v5c0 5-4 9-9 9H18c-4 0-8-4-8-9Z" fill="#111114" stroke="#000" stroke-width="2"/>
-              <circle cx="36" cy="52" r="18" fill="#0a0a0c" stroke="#3a3a3a" stroke-width="4"/>
-              <circle cx="128" cy="52" r="18" fill="#0a0a0c" stroke="#3a3a3a" stroke-width="4"/>
-            </g>
-            <text x="20" y="382" font-family="Rajdhani, sans-serif" font-weight="700" font-size="12" letter-spacing="1.5" fill="#e9e9ee" opacity=".9">SERVICE BAY 4</text>
-            <text x="270" y="382" font-family="Rajdhani, sans-serif" font-weight="700" font-size="11" letter-spacing="1" fill="#ff2b39">«KP</text>
-          </svg>
-        </div>
-        <span class="g-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        <div><div class="g-tag">Service Bay 4</div><h4>Hot-Hatch Line-Up — Civic Type R Prep</h4></div>
-      </a>
-
-      <!-- 6. Porsche 911 GT3 RS — Blue Livery -->
-      <a class="g-card reveal" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">
-        <div class="g-bg">
-          <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="320" height="400" fill="#0c0d10"/>
-            <defs><linearGradient id="gRS" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2b4a8a" stop-opacity=".25"/><stop offset="100%" stop-color="#0c0d10" stop-opacity="0"/></linearGradient></defs>
-            <rect width="320" height="400" fill="url(#gRS)"/>
-            <g stroke="#22232a" stroke-width="1"><line x1="0" y1="320" x2="90" y2="400"/><line x1="100" y1="320" x2="190" y2="400"/><line x1="200" y1="320" x2="290" y2="400"/></g>
-            <g transform="translate(30,236)">
-              <!-- swan neck wing -->
-              <path d="M40 6 L46 42 M180 6 L174 42" stroke="#0c0c0e" stroke-width="6"/>
-              <rect x="26" y="-6" width="168" height="12" rx="3" fill="#0c0c0e"/>
-              <path d="M20,74c0-6 8-11 18-11h20l12-20c7-11 21-18 35-18h72c16 0 30 8 38 21l12 18h18c11 0 18 6 18 12v6c0 6-5 11-11 11H31c-6 0-11-5-11-11Z" fill="#eef0f2" stroke="#111" stroke-width="2"/>
-              <rect x="26" y="30" width="180" height="10" fill="#274d8a"/>
-              <text x="150" y="58" font-family="Rajdhani, sans-serif" font-weight="700" font-size="14" fill="#274d8a">GT3 RS</text>
-              <circle cx="94" cy="78" r="25" fill="#0a0a0c" stroke="#274d8a" stroke-width="5"/><circle cx="94" cy="78" r="10" fill="#1c1c20"/>
-              <circle cx="212" cy="78" r="25" fill="#0a0a0c" stroke="#274d8a" stroke-width="5"/><circle cx="212" cy="78" r="10" fill="#1c1c20"/>
-            </g>
-            <text x="20" y="34" font-family="Rajdhani, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#4a6aa8">TRACK AERO PACKAGE</text>
-            <text x="20" y="382" font-family="Rajdhani, sans-serif" font-weight="700" font-size="11" letter-spacing="1" fill="#ff2b39">«KP</text>
-          </svg>
-        </div>
-        <span class="g-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        <div><div class="g-tag">Track Aero &amp; Livery</div><h4>Porsche 911 GT3 RS — Blue Accent Wrap</h4></div>
-      </a>
-
-      <!-- 7. BMW X5 M — Alignment, Bronze Wheels -->
-      <a class="g-card reveal" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">
-        <div class="g-bg">
-          <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="320" height="400" fill="#111114"/>
-            <rect width="320" height="240" fill="#1b1b20"/>
-            <rect x="20" y="270" width="280" height="60" rx="6" fill="#1e2126" stroke="#3a3d44"/>
-            <g transform="translate(60,190)">
-              <path d="M20 130 V96 Q20 82 34 82 H80 L96 60 H210 L226 82 H260 Q274 82 274 96 V130 Z" fill="#e7e7ec" stroke="#111" stroke-width="2"/>
-              <rect x="90" y="66" width="110" height="18" fill="#0a0a0c"/>
-              <circle cx="76" cy="132" r="26" fill="#0a0a0c" stroke="#8a6a3c" stroke-width="6"/><circle cx="76" cy="132" r="10" fill="#8a6a3c"/>
-              <circle cx="218" cy="132" r="26" fill="#0a0a0c" stroke="#8a6a3c" stroke-width="6"/><circle cx="218" cy="132" r="10" fill="#8a6a3c"/>
-              <rect x="12" y="100" width="10" height="24" fill="#0e0e0e"/>
-            </g>
-            <text x="20" y="34" font-family="Rajdhani, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#8a6a3c">BRONZE FORGED WHEELS</text>
-            <text x="20" y="382" font-family="Rajdhani, sans-serif" font-weight="700" font-size="11" letter-spacing="1" fill="#ff2b39">«KP</text>
-          </svg>
-        </div>
-        <span class="g-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        <div><div class="g-tag">Alignment &amp; Wheel Fitment</div><h4>BMW X5 M — Bronze Forged Wheels</h4></div>
-      </a>
-
-      <!-- 8. Lexus GX Overlander -->
-      <a class="g-card reveal" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">
-        <div class="g-bg">
-          <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="320" height="400" fill="#151009"/>
-            <defs><radialGradient id="gGX" cx="50%" cy="30%" r="75%"><stop offset="0%" stop-color="#cbb27a" stop-opacity=".16"/><stop offset="100%" stop-color="#151009" stop-opacity="0"/></radialGradient></defs>
-            <rect width="320" height="400" fill="url(#gGX)"/>
-            <g stroke="#241d12" stroke-width="1"><line x1="0" y1="310" x2="80" y2="400"/><line x1="90" y1="310" x2="170" y2="400"/><line x1="180" y1="310" x2="260" y2="400"/><line x1="270" y1="310" x2="320" y2="380"/></g>
-            <g transform="translate(46,216)">
-              <rect x="20" y="0" width="180" height="8" rx="2" fill="#1a1a1a"/>
-              <rect x="30" y="-12" width="16" height="12" fill="#1a1a1a"/><rect x="90" y="-12" width="16" height="12" fill="#1a1a1a"/><rect x="150" y="-12" width="16" height="12" fill="#1a1a1a"/>
-              <path d="M15 110 V70 Q15 56 30 56 H70 L86 32 H198 L214 56 H244 Q258 56 258 70 V110 Z" fill="#cbb27a" stroke="#1a1712" stroke-width="2"/>
-              <rect x="80" y="40" width="120" height="16" fill="#0a0a0c"/>
-              <path d="M15 110 H0 M258 110 H274" stroke="#0f0d0a" stroke-width="6"/>
-              <circle cx="66" cy="112" r="27" fill="#0a0a0c" stroke="#1a1a1a" stroke-width="8"/><circle cx="66" cy="112" r="10" fill="#2a2a2a"/>
-              <circle cx="206" cy="112" r="27" fill="#0a0a0c" stroke="#1a1a1a" stroke-width="8"/><circle cx="206" cy="112" r="10" fill="#2a2a2a"/>
-              <rect x="188" y="26" width="24" height="6" fill="#ffb020" opacity=".85"/>
-            </g>
-            <text x="20" y="34" font-family="Rajdhani, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#cbb27a">OVERLAND BUILD</text>
-            <text x="20" y="382" font-family="Rajdhani, sans-serif" font-weight="700" font-size="11" letter-spacing="1" fill="#ff2b39">«KP</text>
-          </svg>
-        </div>
-        <span class="g-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        <div><div class="g-tag">Off-Road Build</div><h4>Lexus GX Overlander — Armor &amp; All-Terrain</h4></div>
-      </a>
-
-      <!-- 9. McLaren Elva — Satin Purple Fade -->
-      <a class="g-card reveal" href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">
-        <div class="g-bg">
-          <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="320" height="400" fill="#0a0810"/>
-            <defs><linearGradient id="gElva" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6a4fa3" stop-opacity=".3"/><stop offset="100%" stop-color="#0a0810" stop-opacity="0"/></linearGradient>
-            <linearGradient id="gElvaCar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#8a63c9"/><stop offset="100%" stop-color="#141018"/></linearGradient></defs>
-            <rect width="320" height="400" fill="url(#gElva)"/>
-            <path d="M240 200 L296 190 L300 208 L246 218 Z" fill="#eef0f2" opacity=".45"/>
-            <path d="M0 214 L60 202 L64 220 L4 232 Z" fill="#111" opacity=".5"/>
-            <g transform="translate(28,234)">
-              <path d="M20,68c0-6 8-10 18-10h16l12-18c7-10 20-16 33-16h66c12 0 22 6 28 15l11 17h18c9 0 16 4 16 9v6c0 5-4 9-9 9H30c-5 0-9-4-9-9Z" fill="url(#gElvaCar)" stroke="#05030a" stroke-width="2"/>
-              <path d="M70 26c6-8 16-14 27-14" stroke="#eef0f2" stroke-width="4" fill="none" opacity=".7"/>
-              <circle cx="60" cy="68" r="0" />
-              <ellipse cx="86" cy="30" rx="10" ry="7" fill="#eef0f2" opacity=".85"/><ellipse cx="120" cy="30" rx="10" ry="7" fill="#eef0f2" opacity=".85"/>
-              <circle cx="90" cy="70" r="24" fill="#0a0a0c" stroke="#2a2030" stroke-width="6"/><circle cx="90" cy="70" r="9" fill="#1c1c20"/>
-              <circle cx="200" cy="70" r="24" fill="#0a0a0c" stroke="#2a2030" stroke-width="6"/><circle cx="200" cy="70" r="9" fill="#1c1c20"/>
-            </g>
-            <text x="20" y="34" font-family="Rajdhani, sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#a98ad8">FULL WRAP · NO ROOF</text>
-            <text x="20" y="382" font-family="Rajdhani, sans-serif" font-weight="700" font-size="11" letter-spacing="1" fill="#ff2b39">«KP</text>
-          </svg>
-        </div>
-        <span class="g-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        <div><div class="g-tag">Full Color-Change Wrap</div><h4>McLaren Elva — Satin Purple-Black Fade</h4></div>
-      </a>
-
-    </div>
-
-    <div class="cta-band reveal" style="margin-top:26px;">
-      <div class="eyebrow" style="justify-content:center;">Your Build Next</div>
-      <h2 style="margin-top:10px; font-size:clamp(22px,3vw,30px);">See it, then build it.</h2>
-      <p>These are illustrated from real Kanoo Performance projects — the exact spec sheet behind any
-        of them (kit, wrap, wheels, tune) is one visit to the configurator away.</p>
-      <div class="hero-actions" style="justify-content:center;">
-        <a class="btn btn-primary" href="configurator.html">Open the Builder →</a>
-      </div>
-    </div>
-
-    <p class="form-hint" style="margin-top:16px;">
-      Illustrated from real Kanoo Performance projects shared on
-      <a href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener" style="color:var(--accent-2);">@kanooperformance</a> —
-      this demo had no accessible image files to embed directly, so each card is a hand-drawn SVG recreation of the
-      real scene rather than a photograph. Swap in real photo assets any time without touching anything else.
-    </p>
-  </div>
-</section>
-
-<!-- ============================================================ CTA -->
-<section class="tight">
-  <div class="container">
-    <div class="cta-band reveal">
-      <div class="eyebrow" style="justify-content:center;">Ready When You Are</div>
-      <h2 style="margin-top:12px;">Design your build. Send it straight to our team.</h2>
-      <p>Pick a platform, choose your body kit, tune, wheels &amp; finish — get a live estimate and send the full
-        spec sheet to Kanoo Performance in one tap.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="configurator.html">Open the Builder</a>
-        <a class="btn btn-ghost" href="tel:+97317780555">Call 1778 0555</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Find Us</div>
-      <h2>Tubli, Manama — Kingdom of Bahrain</h2>
-    </div>
-    <div class="contact-grid">
-      <div class="info-stack reveal">
-        <div class="info-card">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
-          <div><b>Address</b><p>Building 800, Road 123, Block 701, Tubli, Manama, Kingdom of Bahrain</p></div>
-        </div>
-        <div class="info-card">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg></span>
-          <div><b>Phone &amp; WhatsApp</b><p>+973 1778 0555</p></div>
-        </div>
-        <div class="info-card">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
-          <div><b>Hours</b><p>Opens 9:00 AM daily · Closed Fridays</p></div>
-        </div>
-      </div>
+    <div class="statement-grid">
       <div class="reveal">
-        <div class="frame-card" style="text-align:center;">
-          <div class="mono-tag">Fastest Way To Reach Us</div>
-          <h3 style="margin-top:14px; font-size:22px;">Send your build spec directly</h3>
-          <p style="color:var(--text-dim); margin-top:10px; font-size:14px;">Use the configurator to lock in your
-            exact spec — kit, tune, wheels, wrap — then fire it to our team on WhatsApp in one tap.</p>
-          <a class="btn btn-primary btn-block" style="margin-top:22px;" href="configurator.html">Start Building →</a>
+        <div class="eyebrow">Who we are</div>
+        <h2 style="margin-top:22px;">One roof.<br>Every discipline of the build.</h2>
+        <div class="body">
+          <p>Kanoo Performance is a one-stop destination for the serious car owner in Bahrain — the
+          place where a McLaren gets showroom prep on the same floor as a numbers-matching C3
+          Corvette on the lift, while a 718 Boxster runs a pull on the in-house dyno next door.</p>
+          <p>Backed by Kanoo Motors and partnered with Garrett Advancing Motion, the workshop pairs
+          factory-grade equipment with fabricators who build one car at a time, to a standard our
+          clients can hand to a concours judge or a track marshal.</p>
+        </div>
+        <div style="margin-top:34px;">
+          <a class="link-arrow" href="#capabilities">What we do
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="reveal" data-d="1">
+        <div class="spec-list">
+          <div class="row"><b>5,738 m²</b><span>Total facility footprint</span></div>
+          <div class="row"><b>Rolling Road</b><span>Chassis dynamometer on site</span></div>
+          <div class="row"><b>ECU Cell</b><span>Dedicated calibration &amp; datalogging</span></div>
+          <div class="row"><b>Fab Shop</b><span>Custom exhaust &amp; bracketry</span></div>
+          <div class="row"><b>Paint &amp; Body</b><span>Booth, PPF &amp; wrap bay</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ FOOTER -->
-<footer>
+<!-- ===================================================== CAPABILITIES -->
+<section class="section capabilities" id="capabilities">
   <div class="container">
-    <div class="foot-grid">
-      <div class="foot-col">
-        <a class="brand" href="index.html" style="margin-bottom:14px; display:inline-flex;">
-          <span class="brand-mark">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M14 4L6 12L14 20" stroke="#ff2b39" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 4L11 12L19 20" stroke="#f3f3f6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <span class="brand-name">KANOO PERFORMANCE</span>
-        </a>
-        <p style="color:var(--text-faint); font-size:13px; max-width:36ch;">Bahrain's largest facility for
-          personalization, customization &amp; maintenance of hyper, luxury &amp; sports cars.</p>
+    <div class="head reveal">
+      <div class="eyebrow eyebrow--light">Capabilities</div>
+      <h2>From a software flash<br>to a bare-shell rebuild.</h2>
+      <p>Every service runs in-house, so a single project manager owns your car from drop-off to dyno sheet.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap reveal">
+        <div class="num">01</div>
+        <h3>ECU Tuning &amp; Dyno</h3>
+        <p>Custom calibration on the rolling road — datalogged, road-verified, and delivered with before/after sheets.</p>
+        <ul><li>Stage 1–3</li><li>Gearbox / TCU</li><li>E85 &amp; race fuel</li></ul>
       </div>
-      <div class="foot-col">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#gallery">Recent Builds</a></li>
-          <li><a href="configurator.html">Build Yours</a></li>
-        </ul>
+      <div class="cap reveal" data-d="1">
+        <div class="num">02</div>
+        <h3>Exhaust Fabrication</h3>
+        <p>Hand-built stainless and titanium systems — valved, mandrel-bent and dyno-tuned for flow, not just volume.</p>
+        <ul><li>Cat-back</li><li>Turbo-back</li><li>Valvetronic</li></ul>
       </div>
-      <div class="foot-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="index.html#services">Body Kits &amp; Wraps</a></li>
-          <li><a href="index.html#services">ECU Tuning &amp; Dyno</a></li>
-          <li><a href="index.html#services">Suspension &amp; Wheels</a></li>
-          <li><a href="index.html#services">PPF &amp; Detailing</a></li>
-        </ul>
+      <div class="cap reveal" data-d="2">
+        <div class="num">03</div>
+        <h3>Engine Building</h3>
+        <p>Forged internals, big turbos and supporting hardware, assembled to blueprint tolerances and run-in on site.</p>
+        <ul><li>Forged rebuilds</li><li>Turbo upgrades</li><li>Cooling</li></ul>
       </div>
-      <div class="foot-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+97317780555">+973 1778 0555</a></li>
-          <li><a href="https://wa.me/message/A3GRQJTD4VRZF1" target="_blank" rel="noopener">WhatsApp Us</a></li>
-          <li><a href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">@kanooperformance</a></li>
-          <li><a href="index.html#contact">Tubli, Manama, Bahrain</a></li>
-        </ul>
+      <div class="cap reveal">
+        <div class="num">04</div>
+        <h3>Aero &amp; Body</h3>
+        <p>Widebody conversions, carbon aero and OEM+ styling — fitted, aligned and finished to panel-gap spec.</p>
+        <ul><li>Widebody</li><li>Carbon</li><li>Fitment</li></ul>
+      </div>
+      <div class="cap reveal" data-d="1">
+        <div class="num">05</div>
+        <h3>Paint · PPF · Wrap</h3>
+        <p>In-booth respray, full paint protection film and colour-change wraps with edge-wrapped, warrantied finishes.</p>
+        <ul><li>Respray</li><li>Full PPF</li><li>Wrap &amp; tint</li></ul>
+      </div>
+      <div class="cap reveal" data-d="2">
+        <div class="num">06</div>
+        <h3>Restoration</h3>
+        <p>Ground-up work on classics and modern collectibles — mechanical, cosmetic and electrical, documented throughout.</p>
+        <ul><li>Concours</li><li>Resto-mod</li><li>Recommission</li></ul>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>Unofficial concept demo built from public info — not an official Kanoo Performance website.</span>
-      <div class="foot-social">
+  </div>
+</section>
+
+<!-- ===================================================== FACILITY -->
+<section class="section facility" id="facility">
+  <div class="container">
+    <div class="head reveal">
+      <div class="eyebrow">The facility</div>
+      <h2>Built like a showroom.<br>Run like a race team.</h2>
+      <p>Off-white walls, warm-grey floors, black ceilings cut by light — the room was designed so the cars are the only colour in it.</p>
+    </div>
+    <div class="facility-grid">
+      <figure class="fac fac--a reveal">
+        <div class="plate plate--workshop"></div><span class="plate-tag">Photo · workshop-wide.jpg</span>
+        <figcaption class="fac-cap"><b>The Workshop</b><span>Nine bays, alignment rack, Hunter equipment, partner service walls.</span></figcaption>
+      </figure>
+      <figure class="fac fac--b reveal" data-d="1">
+        <div class="plate plate--dyno"></div><span class="plate-tag">Photo · dyno-cell.jpg</span>
+        <figcaption class="fac-cap"><b>The Dyno Cell</b><span>Rolling road, twin data screens, controlled airflow.</span></figcaption>
+      </figure>
+      <figure class="fac fac--c reveal">
+        <div class="plate plate--showroom"></div><span class="plate-tag">Photo · showroom.jpg</span>
+        <figcaption class="fac-cap"><b>The Gallery</b><span>Gloss-floor handover space with the KP wall mark.</span></figcaption>
+      </figure>
+      <figure class="fac fac--d reveal" data-d="1">
+        <div class="plate plate--workshop"></div><span class="plate-tag">Photo · fab-shop.jpg</span>
+        <figcaption class="fac-cap"><b>The Fab Shop</b><span>Stainless and titanium exhaust work, mandrel bends, TIG.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== WORK -->
+<section class="section work" id="work">
+  <div class="container">
+    <div class="head reveal">
+      <div class="eyebrow eyebrow--light">Selected work</div>
+      <h2>A sample of what has come<br>through the doors.</h2>
+    </div>
+    <div class="work-bar reveal" id="workFilter">
+      <button class="chip active" data-f="all">All</button>
+      <button class="chip" data-f="performance">Performance</button>
+      <button class="chip" data-f="styling">Styling</button>
+      <button class="chip" data-f="restoration">Restoration</button>
+    </div>
+    <div class="work-grid" id="workGrid">
+      <a class="build reveal" data-cat="styling" href="#contact">
+        <div class="build-plate plate plate--showroom"></div><span class="build-tag">01</span>
+        <div class="build-meta"><span>Styling</span><b>C7 Corvette · Widebody &amp; Livery</b></div>
+      </a>
+      <a class="build tall reveal" data-cat="performance" data-d="1" href="#contact">
+        <div class="build-plate plate plate--workshop"></div><span class="build-tag">02</span>
+        <div class="build-meta"><span>Performance</span><b>GR Yaris · Stage 2 &amp; Intercooler</b></div>
+      </a>
+      <a class="build reveal" data-cat="performance" data-d="2" href="#contact">
+        <div class="build-plate plate plate--dyno"></div><span class="build-tag">03</span>
+        <div class="build-meta"><span>Performance</span><b>718 Boxster S · Dyno Development</b></div>
+      </a>
+      <a class="build reveal" data-cat="styling" href="#contact">
+        <div class="build-plate plate plate--showroom"></div><span class="build-tag">04</span>
+        <div class="build-meta"><span>Styling</span><b>Luxury SUV · Blackout &amp; 24" Forged</b></div>
+      </a>
+      <a class="build tall reveal" data-cat="restoration" data-d="1" href="#contact">
+        <div class="build-plate plate plate--workshop"></div><span class="build-tag">05</span>
+        <div class="build-meta"><span>Restoration</span><b>'77 Trans Am · Full Recommission</b></div>
+      </a>
+      <a class="build reveal" data-cat="restoration" data-d="2" href="#contact">
+        <div class="build-plate plate plate--workshop"></div><span class="build-tag">06</span>
+        <div class="build-meta"><span>Restoration</span><b>C3 Corvette · Chassis-Up Rebuild</b></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== CONFIGURE TEASER -->
+<section class="section configure" id="configure">
+  <div class="container configure-inner">
+    <div class="reveal">
+      <div class="eyebrow">Build your own</div>
+      <h2>Spec it before<br>you call us.</h2>
+      <p>Pick a platform, choose the kit, the tune, the wheels and the finish — watch the estimate
+      and the stance update live, then send the full build sheet straight to the team.</p>
+      <div class="actions">
+        <a class="btn btn--solid" href="configurator.html">Open the Configurator</a>
+        <a class="btn" href="https://wa.me/97317780555" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+    <div class="configure-visual reveal" data-d="1">
+      <div class="plate"></div>
+      <div class="cv-car">
+        <svg viewBox="0 0 520 200" fill="none">
+          <path d="M40 150c0-7 9-12 21-12h26l17-27c7-11 23-20 40-20h84c19 0 37 9 47 23l19 24h23c12 0 21 7 21 16v9c0 7-5 12-12 12h-13a30 30 0 0 1-60 0H150a30 30 0 0 1-60 0H52c-7 0-12-5-12-12Z" fill="#1c1f22" stroke="#3a3e42" stroke-width="2"/>
+          <path d="M120 116l14-23c6-10 18-16 30-16h74c15 0 29 7 37 19l15 21" stroke="#e4231a" stroke-width="2" opacity=".8"/>
+          <circle cx="132" cy="150" r="26" fill="#0a0a0b" stroke="#4b4f53" stroke-width="5"/>
+          <circle cx="132" cy="150" r="10" fill="#26292c" stroke="#e4231a" stroke-width="1.6"/>
+          <circle cx="322" cy="150" r="26" fill="#0a0a0b" stroke="#4b4f53" stroke-width="5"/>
+          <circle cx="322" cy="150" r="10" fill="#26292c" stroke="#e4231a" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div class="cv-hud">
+        <div><b>+130 hp</b><span>Est. gain</span></div>
+        <div><b>−35 mm</b><span>Ride height</span></div>
+        <div><b>21″</b><span>Forged wheels</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== PROCESS -->
+<section class="section process">
+  <div class="container">
+    <div class="head reveal">
+      <div class="eyebrow eyebrow--light">How it works</div>
+      <h2>Four steps from<br>drop-off to dyno sheet.</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc reveal"><div class="n">01</div><h3>Consultation</h3><p>Bring the car in. We walk the build, set the target and the budget together.</p></div>
+      <div class="proc reveal" data-d="1"><div class="n">02</div><h3>Spec &amp; Quote</h3><p>A written build sheet — parts, labour, timeline — signed off before anything is ordered.</p></div>
+      <div class="proc reveal" data-d="2"><div class="n">03</div><h3>The Build</h3><p>One project manager, photo updates at every milestone, one car on the bench at a time.</p></div>
+      <div class="proc reveal" data-d="3"><div class="n">04</div><h3>Dyno &amp; Handover</h3><p>Road-verified, dyno-sheeted, detailed and handed back in the gallery.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== CTA -->
+<section class="cta">
+  <div class="plate"></div>
+  <div class="container">
+    <div class="reveal">
+      <h2>Bring us the car.</h2>
+      <p>Tell us what you're chasing — more power, a cleaner stance, a full restoration — and we'll tell you exactly how we'd get there.</p>
+      <div class="actions">
+        <a class="btn btn--solid-light" href="#contact">Book a Consultation</a>
+        <a class="btn btn--light" href="https://wa.me/97317780555" target="_blank" rel="noopener">Message on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== CONTACT -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">Visit / Enquire</div>
+        <h2 style="margin-top:22px;">Tubli, Bahrain.</h2>
+        <div class="contact-info">
+          <div class="row"><span class="k">Address</span><span class="v">Road 118, Tubli · Central Governorate</span></div>
+          <div class="row"><span class="k">Phone</span><span class="v"><a href="tel:+97317780555">+973 1778 0555</a></span></div>
+          <div class="row"><span class="k">Hours</span><span class="v">Sat–Thu 9:00–18:00 · Friday closed</span></div>
+          <div class="row"><span class="k">Instagram</span><span class="v"><a href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener">@kanooperformance</a></span></div>
+        </div>
+      </div>
+      <div class="reveal" data-d="1">
+        <form class="form" id="contactForm">
+          <div class="grid2">
+            <div class="field"><label for="c-name">Name</label><input id="c-name" type="text" placeholder="Full name" required></div>
+            <div class="field"><label for="c-phone">Phone / WhatsApp</label><input id="c-phone" type="tel" placeholder="+973 3xxx xxxx" required></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="c-car">Vehicle</label><input id="c-car" type="text" placeholder="e.g. 992 GT3 / G63 / C7 Z06"></div>
+            <div class="field"><label for="c-service">Interest</label>
+              <select id="c-service">
+                <option>ECU Tuning &amp; Dyno</option><option>Exhaust Fabrication</option><option>Engine Build</option>
+                <option>Aero &amp; Body</option><option>Paint · PPF · Wrap</option><option>Restoration</option><option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="field full"><label for="c-msg">Message</label><textarea id="c-msg" placeholder="What are you chasing? Targets, timeline, reference builds…"></textarea></div>
+          <div class="actions">
+            <button type="submit" class="btn btn--solid">Send via WhatsApp</button>
+            <a class="btn" href="tel:+97317780555">Call the workshop</a>
+          </div>
+          <p class="form-hint">Opens WhatsApp to +973 1778 0555 with your details pre-filled. Nothing is sent automatically and this demo stores no data.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">
+          <svg viewBox="0 0 40 40" fill="none">
+            <path d="M20 5 L8 20 L20 35" stroke="#e4231a" stroke-width="4.5" stroke-linecap="square"/>
+            <path d="M31 5 L19 20 L31 35" stroke="#fff" stroke-width="4.5" stroke-linecap="square"/>
+          </svg>
+        </span>
+        <span class="brand-name">Kanoo Performance<small>Tubli · Bahrain</small></span>
+      </a>
+      <nav class="footer-nav">
+        <a href="#work">Work</a><a href="#capabilities">Capabilities</a><a href="#facility">The Facility</a>
+        <a href="configurator.html">Configure</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>Unofficial concept demo — not the official Kanoo Performance website. Built by WebiQQ.</span>
+      <div class="footer-social">
         <a href="https://www.instagram.com/kanooperformance/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
         </a>
-        <a href="https://wa.me/message/A3GRQJTD4VRZF1" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <a href="https://wa.me/97317780555" target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z"/></svg>
         </a>
       </div>
@@ -633,6 +380,7 @@
   </div>
 </footer>
 
+<div class="toast" id="toast"></div>
 <script src="js/main.js"></script>
 </body>
 </html>
