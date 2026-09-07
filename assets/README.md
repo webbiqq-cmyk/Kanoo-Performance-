@@ -16,8 +16,13 @@ wordmark, angular ceiling light-lines). A short muted looping `<video>` also wor
 
 ### 3D car model  →  `assets/supercar.glb`
 The hero right column runs a `<model-viewer>` pointed at `assets/supercar.glb`.
-Until that file exists it shows the SVG fallback. Drop in a **.glb / .gltf** and it
-goes live — drag to orbit, turns on scroll, gentle idle spin.
+Drag to orbit, it turns on scroll, gentle idle spin. SVG fallback shows while it loads.
+
+**Currently shipped:** the three.js sample "Ferrari 458" model (Draco-compressed, 1.6 MB)
+as a stand-in. Fine for the demo; **replace with a KP-owned or properly licensed model
+before production** — ideally a car KP actually builds.
+
+To swap: drop your **.glb / .gltf** in as `assets/supercar.glb`. That's it.
 - Format: `.glb` (binary glTF), Y-up, real-world metres, centred on origin.
 - Budget: aim < 8 MB, < 150k triangles, 2k textures — it loads on every visit.
 - A `.usdz` twin (`assets/supercar.usdz`) enables "view in your space" on iOS.
