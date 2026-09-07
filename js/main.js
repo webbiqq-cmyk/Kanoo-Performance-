@@ -149,21 +149,43 @@
     });
   }
 
-  /* ---------------------------------------------------- active section link */
-  var navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
-  if ("IntersectionObserver" in window && navAnchors.length) {
-    var map = {};
-    navAnchors.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
-    var sio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting && map[e.target.id]) {
-          navAnchors.forEach(function (a) { a.classList.remove("active"); });
-          map[e.target.id].classList.add("active");
-        }
+  /* ---------------------------------------------------- scrollspy */
+  var spyLinks = [].slice.call(document.querySelectorAll(".nav-links a")).filter(function (a) {
+    var h = a.getAttribute("href") || "";
+    return h.charAt(0) === "#" || a.hasAttribute("data-spy");
+  });
+  if (spyLinks.length) {
+    var sections = spyLinks.map(function (a) {
+      var id = a.getAttribute("data-spy") || a.getAttribute("href").slice(1);
+      return { link: a, el: document.getElementById(id) };
+    }).filter(function (s) { return s.el; });
+
+    var spy = function () {
+      var line = window.scrollY + window.innerHeight * 0.32;
+      var current = null, bestTop = -Infinity;
+      sections.forEach(function (s) {
+        var top = s.el.getBoundingClientRect().top + window.scrollY;
+        if (top <= line && top > bestTop) { bestTop = top; current = s; }
       });
-    }, { threshold: 0.4 });
-    Object.keys(map).forEach(function (id) {
-      var s = document.getElementById(id); if (s) sio.observe(s);
-    });
+      // pin the last section (by document order) once scrolled to the bottom
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        current = sections.slice().sort(function (a, b) {
+          return (a.el.getBoundingClientRect().top) - (b.el.getBoundingClientRect().top);
+        }).pop();
+      }
+      spyLinks.forEach(function (a) { a.classList.remove("active"); });
+      if (current) current.link.classList.add("active");
+    };
+
+    var spyRaf = false;
+    var onSpy = function () {
+      if (spyRaf) return;
+      spyRaf = true;
+      requestAnimationFrame(function () { spyRaf = false; spy(); });
+    };
+    window.addEventListener("scroll", onSpy, { passive: true });
+    window.addEventListener("resize", onSpy, { passive: true });
+    window.addEventListener("hashchange", onSpy);
+    spy();
   }
 })();
