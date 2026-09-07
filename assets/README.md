@@ -31,7 +31,7 @@ them up. Ideal: 2400px long edge, sRGB, q80 JPG. Portrait slots (`facility-showr
 ## 3D car model  →  `assets/supercar.glb`
 Hero right column runs `<model-viewer>`. Drag to orbit, turns on scroll, idle spin.
 
-**Currently shipped:** a detailed Lamborghini Aventador, optimised to ~1.5 MB
+**Currently shipped:** a detailed Lamborghini Aventador SVJ, optimised to ~1.5 MB
 (Draco geometry + WebP textures via `npx @gltf-transform/cli optimize`). Stand-in —
 **replace with a KP-owned / licensed model before production**, ideally a car KP
 actually builds. Run the same optimise step on the replacement to keep it light.
