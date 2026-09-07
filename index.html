@@ -54,28 +54,67 @@
 
 <!-- ===================================================== HERO -->
 <section class="hero">
-  <!-- Swap this block for: <div class="hero-media"><img src="assets/hero-workshop.jpg" alt=""></div> -->
+  <!-- Swap .hero-plate for: <div class="hero-media"><img src="assets/hero-workshop.jpg" alt=""></div> -->
   <div class="hero-plate"></div>
   <div class="hero-veil"></div>
-  <div class="container">
-    <div class="hero-kicker">Kingdom of Bahrain — Est. Kanoo Motors</div>
-    <h1>Bahrain's <span class="thin">supercar</span> <span class="sig">workshop.</span></h1>
-    <p class="hero-lead">
-      The largest and most advanced facility of its kind in the Kingdom — ECU tuning, in-house
-      rolling-road dyno, hand-built exhaust systems, aero, paint and full restoration. Bring us
-      the car.
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn--solid-light" href="#contact">Book a Consultation</a>
-      <a class="btn btn--light" href="#work">See Recent Builds</a>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="hero-kicker">Kingdom of Bahrain — Est. Kanoo Motors</div>
+      <h1>Bahrain's <span class="thin">supercar</span><br><span class="sig">workshop.</span></h1>
+      <p class="hero-lead">
+        The largest and most advanced facility of its kind in the Kingdom — tuning, dyno,
+        fabrication, aero, paint and full restoration. Bring us the car.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn--solid-light" href="#contact">Book a Consultation</a>
+        <a class="btn btn--light" href="#work">See Recent Builds</a>
+      </div>
+      <ul class="hero-stats">
+        <li><b>5,738 m²</b><span>Facility</span></li>
+        <li><b>9+</b><span>Service Bays</span></li>
+        <li><b>In-House</b><span>Rolling-Road Dyno</span></li>
+      </ul>
     </div>
-    <div class="hero-foot">
-      <div class="cell"><b data-count="5738" data-suffix=" m²">5,738 m²</b><span>Purpose-Built Facility</span></div>
-      <div class="cell"><b data-count="9" data-suffix="+">9+</b><span>Dedicated Service Bays</span></div>
-      <div class="cell"><b>In-House</b><span>Rolling-Road Dyno</span></div>
-      <div class="cell"><b data-count="196" data-suffix="K">196K</b><span>Instagram Community</span></div>
+
+    <div class="hero-car">
+      <!-- Drop a real car model at assets/supercar.glb — until then the SVG fallback shows.
+           Drag to orbit; it also turns as you scroll the hero. -->
+      <model-viewer
+        id="heroCar"
+        src="assets/supercar.glb"
+        alt="Supercar — drag to rotate"
+        camera-controls
+        disable-zoom
+        disable-pan
+        interaction-prompt="none"
+        shadow-intensity="1"
+        shadow-softness="1"
+        exposure="0.85"
+        camera-orbit="-28deg 82deg 108%"
+        min-camera-orbit="auto 68deg auto"
+        max-camera-orbit="auto 96deg auto"
+        field-of-view="32deg">
+        <div class="hero-car-fallback" slot="poster">
+          <svg viewBox="0 0 560 220" fill="none" aria-hidden="true">
+            <ellipse cx="285" cy="196" rx="230" ry="14" fill="#000" opacity=".35"/>
+            <path d="M44 168c0-9 10-15 25-15h24l22-40c10-18 30-30 53-30h96c25 0 48 12 62 32l22 32 30 4c15 2 26 12 26 24v8c0 8-6 14-14 14h-20a34 34 0 0 1-68 0H188a34 34 0 0 1-68 0H58c-8 0-14-6-14-14Z"
+                  fill="#1e2124" stroke="#3c4044" stroke-width="2"/>
+            <path d="M120 142l18-32c8-14 24-22 40-22h84c19 0 37 10 47 26l16 26" stroke="#e4231a" stroke-width="2.4" opacity=".9"/>
+            <path d="M138 140l12-22c6-10 17-16 29-16h64c14 0 27 8 34 20l11 18Z" fill="#0c0d0e" stroke="#4a4e52" stroke-width="1.5"/>
+            <circle cx="150" cy="170" r="34" fill="#0a0a0b" stroke="#5a5f63" stroke-width="7"/>
+            <circle cx="150" cy="170" r="14" fill="#26292c" stroke="#e4231a" stroke-width="2"/>
+            <circle cx="392" cy="170" r="34" fill="#0a0a0b" stroke="#5a5f63" stroke-width="7"/>
+            <circle cx="392" cy="170" r="14" fill="#26292c" stroke="#e4231a" stroke-width="2"/>
+            <rect x="30" y="168" width="20" height="6" rx="2" fill="#e4231a"/>
+          </svg>
+          <span class="hero-car-note">3D model — drop <code>assets/supercar.glb</code></span>
+        </div>
+      </model-viewer>
     </div>
   </div>
+  <a class="hero-scroll" href="#about" aria-label="Scroll">
+    <span></span>
+  </a>
 </section>
 
 <!-- ===================================================== MARQUEE -->
@@ -381,6 +420,7 @@
 </footer>
 
 <div class="toast" id="toast"></div>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

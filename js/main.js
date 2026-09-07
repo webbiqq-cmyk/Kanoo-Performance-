@@ -72,6 +72,35 @@
     counters.forEach(function (el) { cio.observe(el); });
   }
 
+  /* ---------------------------------------------------- hero 3D car */
+  var car = document.getElementById("heroCar");
+  if (car) {
+    var BASE_THETA = -28, BASE_PHI = 82, RADIUS = "108%";
+    var userDragging = false;
+    car.addEventListener("pointerdown", function () { userDragging = true; });
+    // scroll nudges the orbit while the hero is on screen (unless the user is dragging)
+    var ticking = false;
+    window.addEventListener("scroll", function () {
+      if (userDragging || ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var h = window.innerHeight || 800;
+        var p = Math.min(Math.max(window.scrollY / h, 0), 1);
+        try {
+          car.cameraOrbit = (BASE_THETA + p * 60) + "deg " + (BASE_PHI - p * 8) + "deg " + RADIUS;
+        } catch (err) { /* model-viewer not ready */ }
+      });
+    }, { passive: true });
+    // gentle idle drift until first interaction
+    car.addEventListener("load", function () {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      car.setAttribute("auto-rotate", "");
+      car.setAttribute("auto-rotate-delay", "3000");
+      car.setAttribute("rotation-per-second", "6deg");
+    });
+  }
+
   /* ---------------------------------------------------- work filter */
   var filter = document.getElementById("workFilter");
   var grid = document.getElementById("workGrid");
