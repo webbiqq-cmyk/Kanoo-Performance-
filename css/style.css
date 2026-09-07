@@ -174,18 +174,10 @@ p{ margin:0; }
   max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter);
   height:74px; display:flex; align-items:center; justify-content:space-between; gap:24px;
 }
-.brand{ display:flex; align-items:center; gap:13px; }
-.brand-mark{ width:34px; height:34px; display:block; flex:none; }
-.brand-mark svg{ width:100%; height:100%; overflow:visible; }
-.brand-name{
-  font-family:var(--font-display); font-weight:700;
-  text-transform:uppercase; letter-spacing:.14em; font-size:15px;
-  line-height:1; display:flex; flex-direction:column; gap:4px;
-}
-.brand-name small{
-  font-weight:500; letter-spacing:.16em; font-size:8.5px;
-  color:var(--text-faint);
-}
+.brand{ display:flex; align-items:center; }
+.brand-logo{ height:40px; width:auto; display:block; }
+.brand-logo--footer{ height:44px; }
+@media (max-width:520px){ .brand-logo{ height:34px; } }
 .nav-links{ display:flex; gap:34px; }
 .nav-links a{
   font-family:var(--font-display); font-weight:500;
