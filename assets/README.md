@@ -25,7 +25,6 @@ them up. Ideal: 2400px long edge, sRGB, q80 JPG. Portrait slots (`facility-showr
 
 ### Still needed
 - ~~KP logo~~ — added (`logo-white.png` / `logo-dark.png`, from a supplied lockup). A vector (SVG) version would sharpen it further.
-  header/footer currently draw a stand-in chevron.
 - Optional: partner logos (Garrett, Hunter, McLaren, ARB, IPD, Xtreme, LLumar) for
   the marquee, currently set as text.
 
