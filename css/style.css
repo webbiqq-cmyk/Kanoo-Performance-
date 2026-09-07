@@ -305,16 +305,19 @@ p{ margin:0; }
   cursor:grab;
 }
 .hero-car model-viewer:active{ cursor:grabbing; }
-.hero-car-fallback{
-  position:absolute; inset:0; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:18px;
+/* subtle 3-dot loader while the model streams in — no placeholder car */
+.hero-car-loading{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:9px;
 }
-.hero-car-fallback svg{ width:86%; max-width:520px; filter:drop-shadow(0 40px 50px rgba(0,0,0,.55)); }
-.hero-car-note{
-  font-family:var(--font-display); font-weight:500; font-size:10px;
-  letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.4);
+.hero-car-loading span{
+  width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.28);
+  animation:carload 1.1s ease-in-out infinite;
 }
-.hero-car-note code{ font-family:inherit; color:rgba(255,255,255,.62); }
+.hero-car-loading span:nth-child(2){ animation-delay:.15s; }
+.hero-car-loading span:nth-child(3){ animation-delay:.3s; background:var(--signal); }
+@keyframes carload{ 0%,100%{ transform:translateY(0); opacity:.35; } 50%{ transform:translateY(-6px); opacity:1; } }
+.hero-car model-viewer[loaded] .hero-car-loading{ display:none; }
+@media (prefers-reduced-motion:reduce){ .hero-car-loading span{ animation:none; } }
 
 /* ---- scroll cue ------------------------------------------------- */
 .hero-scroll{
@@ -327,10 +330,17 @@ p{ margin:0; }
 
 @media (max-width:940px){
   .hero{ min-height:0; }
-  .hero-inner{ grid-template-columns:1fr; gap:8px; padding-block:34px 44px; }
-  .hero-car{ order:-1; height:38svh; min-height:220px; }
-  .hero-copy{ max-width:none; }
+  .hero-inner{ grid-template-columns:1fr; gap:18px; padding-block:32px 40px; }
+  .hero-copy{ order:1; max-width:none; }
+  .hero-car{ order:2; height:44svh; min-height:240px; margin-right:0; }
   .hero-scroll{ display:none; }
+  .hero-kicker{ white-space:normal; }
+}
+@media (max-width:600px){
+  .topbar{ display:none; }
+  .nav-cta{ display:none; }
+  .nav-inner{ height:64px; }
+  .nav-links{ inset:64px 0 auto 0; }
 }
 @media (max-height:720px) and (min-width:941px){
   .hero h1{ font-size:clamp(38px,5.4vw,62px); }

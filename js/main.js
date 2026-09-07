@@ -92,8 +92,9 @@
         } catch (err) { /* model-viewer not ready */ }
       });
     }, { passive: true });
-    // gentle idle drift until first interaction
     car.addEventListener("load", function () {
+      var loader = car.querySelector(".hero-car-loading");
+      if (loader) loader.remove();
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       car.setAttribute("auto-rotate", "");
       car.setAttribute("auto-rotate-delay", "3000");
