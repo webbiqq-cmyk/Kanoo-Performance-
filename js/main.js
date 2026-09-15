@@ -291,20 +291,102 @@
     });
   }
 
-  /* ---------------------------------------------------- work filter */
-  var filter = document.getElementById("workFilter");
-  var grid = document.getElementById("workGrid");
-  if (filter && grid) {
-    filter.addEventListener("click", function (e) {
-      var btn = e.target.closest(".chip");
-      if (!btn) return;
-      filter.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("active"); });
-      btn.classList.add("active");
-      var f = btn.getAttribute("data-f");
-      grid.querySelectorAll(".build").forEach(function (card) {
-        var show = f === "all" || card.getAttribute("data-cat") === f;
-        card.style.display = show ? "" : "none";
+  /* ---------------------------------------------------- work spotlight */
+  var workStage = document.getElementById("workStage");
+  if (workStage) {
+    var BUILDS = [
+      { img: "assets/build-01.jpg", cat: "styling",     tag: "01", title: "McLaren P1 · Showroom Detail",      detail: "Full paint correction and ceramic coating — factory Volcano Orange restored to concours finish." },
+      { img: "assets/build-02.jpg", cat: "performance", tag: "02", title: "Pagani Zonda · Carbon Service",      detail: "Carbon bodywork inspection and service programme on an exposed-carbon Zonda." },
+      { img: "assets/build-03.jpg", cat: "performance", tag: "03", title: "997 GTS · Titanium Exhaust Build",   detail: "Full titanium cat-back system, mandrel-bent and dyno-tuned for flow." },
+      { img: "assets/build-04.jpg", cat: "styling",     tag: "04", title: "McLaren Elva · Satin Purple",        detail: "Satin colour-change wrap, edge-wrapped and finished to factory panel lines." },
+      { img: "assets/build-05.jpg", cat: "restoration", tag: "05", title: "'77 Trans Am · Full Recommission",  detail: "Ground-up mechanical and cosmetic recommission, documented start to finish." },
+      { img: "assets/build-06.jpg", cat: "restoration", tag: "06", title: "996 Carrera · Mechanical Refresh",   detail: "Suspension, cooling and drivetrain refresh to bring a modern classic back on song." }
+    ];
+    var wsImage = document.getElementById("wsImage");
+    var wsCat = document.getElementById("wsCat");
+    var wsTitle = document.getElementById("wsTitle");
+    var wsDetail = document.getElementById("wsDetail");
+    var wsIndexNum = document.getElementById("wsIndexNum");
+    var thumbs = [].slice.call(workStage.querySelectorAll(".ws-thumb"));
+    var wsCurrent = 0;
+
+    function wsVisible() { return thumbs.filter(function (t) { return t.style.display !== "none"; }); }
+
+    function wsShow(i, skipFade) {
+      wsCurrent = i;
+      var b = BUILDS[i];
+      var apply = function () {
+        wsImage.src = b.img;
+        wsImage.alt = b.title;
+        wsCat.textContent = b.cat.charAt(0).toUpperCase() + b.cat.slice(1);
+        wsTitle.textContent = b.title;
+        wsDetail.textContent = b.detail;
+        wsIndexNum.textContent = b.tag;
+      };
+      thumbs.forEach(function (t) { t.classList.toggle("active", parseInt(t.getAttribute("data-i"), 10) === i); });
+      if (skipFade || reduceMotion) { apply(); return; }
+      wsImage.style.opacity = 0;
+      setTimeout(function () { apply(); wsImage.style.opacity = 1; }, 260);
+    }
+
+    thumbs.forEach(function (t) {
+      t.addEventListener("click", function () { wsShow(parseInt(t.getAttribute("data-i"), 10)); });
+    });
+
+    function wsStep(dir) {
+      var vis = wsVisible();
+      if (!vis.length) return;
+      var idxInVis = vis.findIndex(function (t) { return parseInt(t.getAttribute("data-i"), 10) === wsCurrent; });
+      if (idxInVis === -1) idxInVis = 0;
+      var nextIdx = (idxInVis + dir + vis.length) % vis.length;
+      wsShow(parseInt(vis[nextIdx].getAttribute("data-i"), 10));
+    }
+    var wsPrev = workStage.querySelector(".ws-prev"), wsNext = workStage.querySelector(".ws-next");
+    if (wsPrev) wsPrev.addEventListener("click", function () { wsStep(-1); });
+    if (wsNext) wsNext.addEventListener("click", function () { wsStep(1); });
+
+    var workFilter = document.getElementById("workFilter");
+    if (workFilter) {
+      workFilter.addEventListener("click", function (e) {
+        var chip = e.target.closest(".chip");
+        if (!chip) return;
+        workFilter.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("active"); });
+        chip.classList.add("active");
+        var f = chip.getAttribute("data-f");
+        thumbs.forEach(function (t) {
+          var show = f === "all" || t.getAttribute("data-cat") === f;
+          t.style.display = show ? "" : "none";
+        });
+        var vis = wsVisible();
+        if (vis.length && vis.indexOf(thumbs[wsCurrent]) === -1) {
+          wsShow(parseInt(vis[0].getAttribute("data-i"), 10), true);
+        }
       });
+    }
+
+    wsShow(0, true);
+  }
+
+  /* ---------------------------------------------------- magnetic buttons + 3D tilt */
+  if (!reduceMotion && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    document.querySelectorAll(".btn").forEach(function (btn) {
+      btn.addEventListener("mousemove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = e.clientX - r.left - r.width / 2;
+        var y = e.clientY - r.top - r.height / 2;
+        btn.style.transform = "translate(" + (x * 0.16).toFixed(1) + "px," + (y * 0.28).toFixed(1) + "px)";
+      });
+      btn.addEventListener("mouseleave", function () { btn.style.transform = ""; });
+    });
+
+    document.querySelectorAll(".tilt").forEach(function (el) {
+      el.addEventListener("mousemove", function (e) {
+        var r = el.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transform = "perspective(1000px) rotateX(" + (-py * 5).toFixed(2) + "deg) rotateY(" + (px * 5).toFixed(2) + "deg)";
+      });
+      el.addEventListener("mouseleave", function () { el.style.transform = ""; });
     });
   }
 
