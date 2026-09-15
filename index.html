@@ -5,8 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kanoo Performance — Bahrain's Supercar Workshop</title>
 <meta name="description" content="Kanoo Performance — concept demo. Bahrain's largest and most advanced facility for tuning, customizing, fabricating and restoring hyper, luxury and sports cars. Tubli, Manama." />
+<link rel="canonical" href="https://kanoo-performance-demo.local/" />
 <meta property="og:title" content="Kanoo Performance — Bahrain's Supercar Workshop" />
 <meta property="og:description" content="ECU tuning, in-house dyno, custom exhaust fabrication, aero, paint, PPF and full restoration — under one roof in Tubli." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/hero-workshop.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/style.css?v=2" />
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -31,9 +36,10 @@
       <img class="brand-logo" src="assets/logo-dark.png" alt="Kanoo Performance" width="900" height="316">
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#capabilities">Capabilities</a>
+      <a href="services.html">Services</a>
       <a href="#facility">The Facility</a>
       <a href="#work">Work</a>
+      <a href="#dashboard">Dashboard</a>
       <a href="configurator.html" data-spy="configure">Configure</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -76,9 +82,10 @@
            Drag to orbit; it also turns as you scroll the hero. -->
       <model-viewer
         id="heroCar"
-        src="assets/supercar.glb?v=2"
+        data-src="assets/supercar.glb?v=2"
         alt="Lamborghini Aventador SVJ — drag to rotate"
-        loading="eager"
+        loading="lazy"
+        reveal="manual"
         camera-controls
         disable-zoom
         disable-pan
@@ -94,6 +101,7 @@
         field-of-view="26deg">
         <div class="hero-car-loading" slot="poster" aria-hidden="true"><span></span><span></span><span></span></div>
       </model-viewer>
+      <img class="hero-car-fallback" src="assets/build-02.jpg" alt="Supercar in the Kanoo Performance facility" loading="eager" decoding="async">
       <div class="paint-swatches" id="paintSwatches" role="group" aria-label="Body colour"></div>
     </div>
   </div>
@@ -118,7 +126,7 @@
     <div class="statement-grid">
       <div class="reveal">
         <div class="eyebrow">Who we are</div>
-        <h2 style="margin-top:22px;">One roof.<br>Every discipline of the build.</h2>
+        <h2 class="mt-22">One roof.<br>Every discipline of the build.</h2>
         <div class="body">
           <p>Kanoo Performance is a one-stop destination for the serious car owner in Bahrain — the
           place where a McLaren gets showroom prep on the same floor as a numbers-matching C3
@@ -127,7 +135,7 @@
           factory-grade equipment with fabricators who build one car at a time, to a standard our
           clients can hand to a concours judge or a track marshal.</p>
         </div>
-        <div style="margin-top:34px;">
+        <div class="mt-34">
           <a class="link-arrow" href="#capabilities">What we do
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
           </a>
@@ -192,6 +200,11 @@
         <ul><li>Concours</li><li>Resto-mod</li><li>Recommission</li></ul>
       </div>
     </div>
+    <div class="cap-more reveal">
+      <a class="link-arrow link-arrow--light" href="services.html">See the full service breakdown
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -221,6 +234,49 @@
         <figcaption class="fac-cap"><b>The Fab Shop</b><span>Stainless and titanium exhaust work, mandrel bends, TIG.</span></figcaption>
       </figure>
     </div>
+  </div>
+</section>
+
+<!-- ===================================================== FEATURED BUILD -->
+<section class="section feature" id="featured-build">
+  <div class="container">
+    <div class="head reveal">
+      <div class="eyebrow">Signature build</div>
+      <h2>One car,<br>every discipline applied.</h2>
+      <p>A closer look at a completed build. Select a point on the car for the work behind it — specification shown is demo data, for illustration only.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-visual reveal">
+        <img src="assets/build-02.jpg" alt="Pagani Zonda — signature Kanoo Performance build" loading="lazy">
+        <span class="fb-badge">Pagani Zonda · Carbon Programme</span>
+        <button type="button" class="hotspot active" data-spot="aero" style="top:78%;left:64%;" aria-label="Aero &amp; Body detail"></button>
+        <button type="button" class="hotspot" data-spot="wheels" style="top:70%;left:27%;" aria-label="Wheels &amp; Brakes detail"></button>
+        <button type="button" class="hotspot" data-spot="exhaust" style="top:60%;left:13%;" aria-label="Exhaust detail"></button>
+        <button type="button" class="hotspot" data-spot="power" style="top:46%;left:42%;" aria-label="Powertrain detail"></button>
+      </div>
+      <div class="reveal" data-d="1">
+        <div class="feature-panel">
+          <div class="mono-tag" id="fp-eyebrow">Aero &amp; Body</div>
+          <h3 id="fp-title">Front splitter &amp; carbon aero</h3>
+          <p id="fp-desc">Hand-laid carbon splitter and skirts fitted and gap-checked in-house, paired with a fixed rear wing for real high-speed downforce — not just the look of it.</p>
+        </div>
+        <div class="feature-list" id="featureList">
+          <button type="button" class="active" data-spot="aero">Aero &amp; Body <span>Carbon splitter, skirts, wing</span></button>
+          <button type="button" data-spot="wheels">Wheels &amp; Brakes <span>Forged monoblock, 6-pot calipers</span></button>
+          <button type="button" data-spot="exhaust">Exhaust <span>Titanium side-exit system</span></button>
+          <button type="button" data-spot="power">Powertrain <span>Naturally-aspirated V12</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-strip reveal">
+      <div><b>760 HP</b><span>Power</span></div>
+      <div><b>700 NM</b><span>Torque</span></div>
+      <div><b>3.4 SEC</b><span>0&ndash;100</span></div>
+      <div><b>RWD</b><span>Drivetrain</span></div>
+      <div><b>7.3L V12</b><span>Engine</span></div>
+    </div>
+    <p class="spec-note">Demo specification for this concept build — illustrative only, not an official manufacturer figure.</p>
   </div>
 </section>
 
@@ -268,6 +324,35 @@
         <span class="build-tag">06</span>
         <div class="build-meta"><span>Restoration</span><b>996 Carrera · Mechanical Refresh</b></div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== CUSTOMER DASHBOARD -->
+<section class="section dashboard" id="dashboard" aria-labelledby="dashboard-title">
+  <div class="container">
+    <div class="dashboard-head reveal">
+      <div>
+        <div class="eyebrow">Customer dashboard</div>
+        <h2 id="dashboard-title">A simple view<br>of the job.</h2>
+      </div>
+      <p>Clear demo data for the owner: vehicle, build progress, service history and the next appointment, without turning the experience into a software product.</p>
+    </div>
+    <div class="dash-shell reveal" data-d="1" data-dashboard>
+      <aside class="dash-side" aria-label="Dashboard sections">
+        <button class="dash-tab active" type="button" data-dash-panel="overview">Overview</button>
+        <button class="dash-tab" type="button" data-dash-panel="vehicle">My Vehicle</button>
+        <button class="dash-tab" type="button" data-dash-panel="status">Build Status</button>
+        <button class="dash-tab" type="button" data-dash-panel="history">Service History</button>
+        <button class="dash-tab" type="button" data-dash-panel="appointments">Appointments</button>
+      </aside>
+      <div class="dash-main">
+        <section class="dash-panel active" id="dash-overview" data-dash-panel-id="overview" aria-label="Overview"></section>
+        <section class="dash-panel" id="dash-vehicle" data-dash-panel-id="vehicle" aria-label="My Vehicle"></section>
+        <section class="dash-panel" id="dash-status" data-dash-panel-id="status" aria-label="Build Status"></section>
+        <section class="dash-panel" id="dash-history" data-dash-panel-id="history" aria-label="Service History"></section>
+        <section class="dash-panel" id="dash-appointments" data-dash-panel-id="appointments" aria-label="Appointments"></section>
+      </div>
     </div>
   </div>
 </section>
@@ -333,7 +418,7 @@
     <div class="contact-grid">
       <div class="reveal">
         <div class="eyebrow">Visit / Enquire</div>
-        <h2 style="margin-top:22px;">Tubli, Bahrain.</h2>
+        <h2 class="mt-22">Tubli, Bahrain.</h2>
         <div class="contact-info">
           <div class="row"><span class="k">Address</span><span class="v">Road 118, Tubli · Central Governorate</span></div>
           <div class="row"><span class="k">Phone</span><span class="v"><a href="tel:+97317780555">+973 1778 0555</a></span></div>
@@ -376,7 +461,8 @@
         <img class="brand-logo brand-logo--footer" src="assets/logo-white.png" alt="Kanoo Performance" width="900" height="316">
       </a>
       <nav class="footer-nav">
-        <a href="#capabilities">Capabilities</a><a href="#facility">The Facility</a><a href="#work">Work</a>
+        <a href="services.html">Services</a><a href="#facility">The Facility</a><a href="#work">Work</a>
+        <a href="#dashboard">Dashboard</a>
         <a href="configurator.html">Configure</a><a href="#contact">Contact</a>
       </nav>
     </div>
@@ -395,7 +481,6 @@
 </footer>
 
 <div class="toast" id="toast"></div>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 <script src="js/main.js?v=2"></script>
 </body>
 </html>

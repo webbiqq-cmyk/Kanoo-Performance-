@@ -4,6 +4,7 @@
   "use strict";
 
   var WHATSAPP = "97317780555"; // +973 1778 0555
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------------------------------------------------- mobile nav */
   var burger = document.querySelector(".nav-burger");
@@ -24,11 +25,16 @@
   /* ---------------------------------------------------- nav on scroll */
   var nav = document.getElementById("nav");
   if (nav) {
+    var navTicking = false;
     var onScroll = function () {
       nav.style.background = window.scrollY > 20
         ? "rgba(243,244,244,.95)" : "rgba(243,244,244,.82)";
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", function () {
+      if (navTicking) return;
+      navTicking = true;
+      requestAnimationFrame(function () { navTicking = false; onScroll(); });
+    }, { passive: true });
     onScroll();
   }
 
@@ -41,9 +47,19 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
     revealEls.forEach(function (el) { io.observe(el); });
-    setTimeout(function () { revealEls.forEach(function (el) { el.classList.add("in"); }); }, 4000);
+    setTimeout(function () { revealEls.forEach(function (el) { el.classList.add("in"); }); }, 3000);
   } else {
     revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  var marquee = document.querySelector(".marquee");
+  if (marquee && "IntersectionObserver" in window) {
+    var marqueeIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        marquee.classList.toggle("is-paused", !entry.isIntersecting);
+      });
+    });
+    marqueeIo.observe(marquee);
   }
 
   /* ---------------------------------------------------- count-up */
@@ -63,7 +79,7 @@
   }
   var counters = document.querySelectorAll("[data-count]");
   if ("IntersectionObserver" in window && counters.length &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      !reduceMotion) {
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); }
@@ -75,13 +91,40 @@
   /* ---------------------------------------------------- hero 3D car */
   var car = document.getElementById("heroCar");
   if (car) {
+    var canUse3D = !reduceMotion && window.matchMedia("(min-width: 721px)").matches && !!document.createElement("canvas").getContext("webgl");
+    var scriptStarted = false;
+    var fallback = document.querySelector(".hero-car-fallback");
     var BASE_THETA = -32, BASE_PHI = 80, RADIUS = "92%";
     var userDragging = false;
     car.addEventListener("pointerdown", function () { userDragging = true; });
+    car.addEventListener("pointerup", function () { userDragging = false; });
+    car.addEventListener("pointercancel", function () { userDragging = false; });
+    function loadModelViewer() {
+      if (scriptStarted || !canUse3D) {
+        if (!canUse3D) document.documentElement.classList.add("no-hero-3d");
+        return;
+      }
+      scriptStarted = true;
+      document.documentElement.classList.add("hero-3d-loading");
+      car.setAttribute("src", car.getAttribute("data-src"));
+      import("https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js").catch(function () {
+        document.documentElement.classList.add("no-hero-3d");
+      });
+    }
+    if ("IntersectionObserver" in window) {
+      var carIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { loadModelViewer(); carIo.disconnect(); }
+        });
+      }, { rootMargin: "300px 0px" });
+      carIo.observe(car);
+    } else {
+      loadModelViewer();
+    }
     // scroll nudges the orbit while the hero is on screen (unless the user is dragging)
     var ticking = false;
     window.addEventListener("scroll", function () {
-      if (userDragging || ticking) return;
+      if (!scriptStarted || userDragging || ticking) return;
       ticking = true;
       requestAnimationFrame(function () {
         ticking = false;
@@ -107,7 +150,6 @@
     }
     var LIN = PAINT.map(function (p) { return toLin(p.hex); });
     var body = null, paintIdx = 0, paintAnim = null, paintTimer = null;
-    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function animatePaint(target) {
       if (!body) return;
@@ -150,6 +192,8 @@
     }
 
     car.addEventListener("load", function () {
+      document.documentElement.classList.add("hero-3d-ready");
+      if (fallback) fallback.loading = "lazy";
       var loader = car.querySelector(".hero-car-loading");
       if (loader) loader.remove();
 
@@ -165,6 +209,85 @@
       car.setAttribute("auto-rotate", "");
       car.setAttribute("auto-rotate-delay", "3000");
       car.setAttribute("rotation-per-second", "6deg");
+    });
+  }
+
+  /* ---------------------------------------------------- featured build hotspots */
+  var fbEyebrow = document.getElementById("fp-eyebrow");
+  if (fbEyebrow) {
+    var FB_DATA = {
+      aero:    { eyebrow: "Aero & Body",     title: "Front splitter & carbon aero",           desc: "Hand-laid carbon splitter and skirts fitted and gap-checked in-house, paired with a fixed rear wing for real high-speed downforce — not just the look of it." },
+      wheels:  { eyebrow: "Wheels & Brakes", title: "Forged wheels, big-brake package",        desc: "Lightweight forged monoblocks over a 6-piston front / 4-piston rear big-brake upgrade, bedded in and road-verified before handover." },
+      exhaust: { eyebrow: "Exhaust",         title: "Titanium side-exit system",               desc: "Mandrel-bent titanium, hand-welded in the fab shop and dyno-tuned for flow and note — built to the client's spec, not off a shelf." },
+      power:   { eyebrow: "Powertrain",      title: "Naturally-aspirated V12, recommissioned", desc: "Full service and recommission on the original powerplant — timing, cooling and ancillaries brought back to factory tolerance." }
+    };
+    var fbTitle = document.getElementById("fp-title");
+    var fbDesc = document.getElementById("fp-desc");
+    var fbSpots = document.querySelectorAll(".hotspot");
+    var fbListBtns = document.querySelectorAll("#featureList button");
+    var setFeature = function (key) {
+      var d = FB_DATA[key];
+      if (!d) return;
+      fbEyebrow.textContent = d.eyebrow;
+      fbTitle.textContent = d.title;
+      fbDesc.textContent = d.desc;
+      fbSpots.forEach(function (s) { s.classList.toggle("active", s.getAttribute("data-spot") === key); });
+      fbListBtns.forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-spot") === key); });
+    };
+    fbSpots.forEach(function (s) { s.addEventListener("click", function () { setFeature(s.getAttribute("data-spot")); }); });
+    fbListBtns.forEach(function (b) { b.addEventListener("click", function () { setFeature(b.getAttribute("data-spot")); }); });
+  }
+
+  /* ---------------------------------------------------- dashboard demo data */
+  var dashboardRoot = document.querySelector("[data-dashboard]");
+  if (dashboardRoot) {
+    var demoJob = {
+      owner: "Ahmed K.",
+      vehicle: "Porsche 911 Turbo S",
+      plate: "KP 911",
+      advisor: "Yousef — Performance Desk",
+      statusIndex: 3,
+      stages: ["Received", "Inspection", "Parts", "Installation", "Testing", "QC", "Ready"],
+      build: "Stage 2 ECU, titanium valved exhaust, full PPF refresh",
+      eta: "Ready for testing: Thursday, 17 Sep",
+      next: "Dyno validation and road log",
+      history: [
+        ["12 Sep", "Inspection complete", "Compression, leak check and baseline dyno logged"],
+        ["10 Sep", "Vehicle received", "Paint inspection, intake scan and build sheet confirmed"],
+        ["04 Jun", "Service", "Oil, filters, brake fluid and geometry check"]
+      ],
+      appointment: { date: "19 Sep", time: "10:30", type: "Handover appointment" }
+    };
+    function statusSteps() {
+      return demoJob.stages.map(function (s, i) {
+        var cls = i < demoJob.statusIndex ? " done" : i === demoJob.statusIndex ? " now" : "";
+        return '<li class="' + cls + '"><span></span><b>' + s + '</b></li>';
+      }).join("");
+    }
+    function historyRows() {
+      return demoJob.history.map(function (h) {
+        return '<div class="dash-row"><b>' + h[0] + '</b><span>' + h[1] + '</span><em>' + h[2] + '</em></div>';
+      }).join("");
+    }
+    var panels = {
+      overview: '<div class="dash-kpis"><div><span>Owner</span><b>' + demoJob.owner + '</b></div><div><span>Vehicle</span><b>' + demoJob.vehicle + '</b></div><div><span>Advisor</span><b>' + demoJob.advisor + '</b></div></div><h3>Current job</h3><p>' + demoJob.build + '</p><ul class="status-steps">' + statusSteps() + '</ul>',
+      vehicle: '<div class="dash-vehicle-card"><img src="assets/build-06.jpg" alt="Porsche 911 in service bay" loading="lazy"><div><h3>' + demoJob.vehicle + '</h3><p>Plate ' + demoJob.plate + ' · Customer performance build</p><div class="dash-specs"><span>Baseline 572 hp</span><span>Target 690 hp</span><span>PPF refresh</span></div></div></div>',
+      status: '<h3>Build status</h3><p>' + demoJob.next + '</p><ul class="status-steps status-steps--wide">' + statusSteps() + '</ul><div class="dash-note"><b>' + demoJob.eta + '</b><span>Owner approval is only needed if the scope changes.</span></div>',
+      history: '<h3>Service history</h3>' + historyRows(),
+      appointments: '<h3>Appointments</h3><div class="dash-appointment"><b>' + demoJob.appointment.date + '</b><span>' + demoJob.appointment.time + '</span><em>' + demoJob.appointment.type + '</em></div><a class="btn btn--sm btn--solid" href="tel:+97317780555">Call to reschedule</a>'
+    };
+    Object.keys(panels).forEach(function (key) {
+      var panel = dashboardRoot.querySelector('[data-dash-panel-id="' + key + '"]');
+      if (panel) panel.innerHTML = panels[key];
+    });
+    dashboardRoot.addEventListener("click", function (e) {
+      var tab = e.target.closest(".dash-tab");
+      if (!tab) return;
+      var key = tab.getAttribute("data-dash-panel");
+      dashboardRoot.querySelectorAll(".dash-tab").forEach(function (t) { t.classList.toggle("active", t === tab); });
+      dashboardRoot.querySelectorAll(".dash-panel").forEach(function (panel) {
+        panel.classList.toggle("active", panel.getAttribute("data-dash-panel-id") === key);
+      });
     });
   }
 
