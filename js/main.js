@@ -91,6 +91,12 @@
   /* ---------------------------------------------------- hero 3D car */
   var car = document.getElementById("heroCar");
   if (car) {
+    var heroMode = "track";
+    var HERO_MODES = {
+      track: { label: "Track Setup", status: "Dyno Validated", power: "760", torque: "700", zero: "3.4", orbit: "-32deg 80deg 92%" },
+      street: { label: "Street Tune", status: "Road Verified", power: "690", torque: "820", zero: "3.7", orbit: "-18deg 76deg 96%" },
+      collect: { label: "Collector Prep", status: "Concours Detail", power: "620", torque: "660", zero: "4.1", orbit: "-46deg 82deg 90%" }
+    };
     var canUse3D = !reduceMotion && window.matchMedia("(min-width: 721px)").matches && !!document.createElement("canvas").getContext("webgl");
     var scriptStarted = false;
     var fallback = document.querySelector(".hero-car-fallback");
@@ -191,8 +197,38 @@
       });
     }
 
+    function setHeroTelemetry(mode) {
+      var data = HERO_MODES[mode] || HERO_MODES.track;
+      heroMode = mode;
+      var textMap = {
+        telemetryMode: data.label,
+        telemetryStatus: data.status,
+        telemetryPower: data.power,
+        telemetryTorque: data.torque,
+        telemetryZero: data.zero
+      };
+      Object.keys(textMap).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = textMap[id];
+      });
+      document.querySelectorAll("#heroModes button").forEach(function (btn) {
+        btn.classList.toggle("active", btn.getAttribute("data-mode") === mode);
+      });
+      try { car.cameraOrbit = data.orbit; } catch (err) { /* model-viewer not ready */ }
+    }
+
+    var heroModes = document.getElementById("heroModes");
+    if (heroModes) {
+      heroModes.addEventListener("click", function (e) {
+        var btn = e.target.closest("button[data-mode]");
+        if (!btn) return;
+        setHeroTelemetry(btn.getAttribute("data-mode"));
+      });
+    }
+
     car.addEventListener("load", function () {
       document.documentElement.classList.add("hero-3d-ready");
+      setHeroTelemetry(heroMode);
       if (fallback) fallback.loading = "lazy";
       var loader = car.querySelector(".hero-car-loading");
       if (loader) loader.remove();

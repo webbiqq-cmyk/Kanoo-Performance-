@@ -62,9 +62,14 @@
       <div class="hero-kicker">Kingdom of Bahrain — Est. Kanoo Motors</div>
       <h1 class="mask-auto"><span class="rl"><span class="ri">Bahrain's <span class="thin">supercar</span></span></span><span class="rl"><span class="ri"><span class="sig">workshop.</span></span></span></h1>
       <p class="hero-lead">
-        The largest and most advanced facility of its kind in the Kingdom — tuning, dyno,
-        fabrication, aero, paint and full restoration. Bring us the car.
+        Dyno-proven calibration, carbon aero, titanium fabrication and concours-level finishing
+        for the cars people stop walking to look at. Bring us the car.
       </p>
+      <div class="hero-modes" id="heroModes" aria-label="Build focus">
+        <button type="button" class="active" data-mode="track">Track</button>
+        <button type="button" data-mode="street">Street</button>
+        <button type="button" data-mode="collect">Collect</button>
+      </div>
       <div class="hero-actions">
         <a class="btn btn--solid-light" href="#contact">Book a Consultation</a>
         <a class="btn btn--light" href="#work">See Recent Builds</a>
@@ -102,6 +107,22 @@
         <div class="hero-car-loading" slot="poster" aria-hidden="true"><span></span><span></span><span></span></div>
       </model-viewer>
       <img class="hero-car-fallback" src="assets/build-02.jpg" alt="Supercar in the Kanoo Performance facility" loading="eager" decoding="async">
+      <div class="hero-telemetry" aria-label="Demo build telemetry">
+        <div class="telemetry-top">
+          <span id="telemetryMode">Track Setup</span>
+          <b id="telemetryStatus">Dyno Validated</b>
+        </div>
+        <div class="telemetry-grid">
+          <div><b id="telemetryPower">760</b><span>HP</span></div>
+          <div><b id="telemetryTorque">700</b><span>NM</span></div>
+          <div><b id="telemetryZero">3.4</b><span>0-100</span></div>
+        </div>
+        <div class="telemetry-bars">
+          <span><i class="bar-power"></i></span>
+          <span><i class="bar-torque"></i></span>
+          <span><i class="bar-response"></i></span>
+        </div>
+      </div>
       <div class="paint-swatches" id="paintSwatches" role="group" aria-label="Body colour"></div>
     </div>
   </div>
@@ -249,10 +270,10 @@
       <div class="feature-visual tilt reveal">
         <img src="assets/build-02.jpg" alt="Pagani Zonda — signature Kanoo Performance build" loading="lazy">
         <span class="fb-badge">Pagani Zonda · Carbon Programme</span>
-        <button type="button" class="hotspot active" data-spot="aero" style="top:78%;left:64%;" aria-label="Aero &amp; Body detail"><span class="hs-label">Aero &amp; Body</span></button>
-        <button type="button" class="hotspot" data-spot="wheels" style="top:70%;left:27%;" aria-label="Wheels &amp; Brakes detail"><span class="hs-label">Wheels &amp; Brakes</span></button>
-        <button type="button" class="hotspot" data-spot="exhaust" style="top:60%;left:13%;" aria-label="Exhaust detail"><span class="hs-label">Exhaust</span></button>
-        <button type="button" class="hotspot" data-spot="power" style="top:46%;left:42%;" aria-label="Powertrain detail"><span class="hs-label">Powertrain</span></button>
+        <button type="button" class="hotspot hotspot--aero active" data-spot="aero" aria-label="Aero &amp; Body detail"><span class="hs-label">Aero &amp; Body</span></button>
+        <button type="button" class="hotspot hotspot--wheels" data-spot="wheels" aria-label="Wheels &amp; Brakes detail"><span class="hs-label">Wheels &amp; Brakes</span></button>
+        <button type="button" class="hotspot hotspot--exhaust" data-spot="exhaust" aria-label="Exhaust detail"><span class="hs-label">Exhaust</span></button>
+        <button type="button" class="hotspot hotspot--power" data-spot="power" aria-label="Powertrain detail"><span class="hs-label">Powertrain</span></button>
       </div>
       <div class="reveal" data-d="1">
         <div class="feature-panel">
