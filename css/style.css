@@ -283,20 +283,21 @@ html:not(.js) .rl .ri{ transform:none; }
   color:rgba(255,255,255,.6);
 }
 .hero-kicker::before{ content:""; width:44px; height:1px; background:var(--signal); flex:none; }
-.hero-kicker,.hero-lead,.hero-actions,.hero-stats{
+.hero-kicker,.hero-lead,.hero-modes,.hero-actions,.hero-stats{
   opacity:0; transform:translateY(14px);
   animation:heroFadeUp .8s var(--ease) forwards;
 }
 .hero-kicker{ animation-delay:.1s; }
 .hero-lead{ animation-delay:.68s; }
-.hero-actions{ animation-delay:.82s; }
-.hero-stats{ animation-delay:.96s; }
+.hero-modes{ animation-delay:.78s; }
+.hero-actions{ animation-delay:.9s; }
+.hero-stats{ animation-delay:1.04s; }
 @keyframes heroFadeUp{ to{ opacity:1; transform:none; } }
-html:not(.js) .hero-kicker,html:not(.js) .hero-lead,html:not(.js) .hero-actions,html:not(.js) .hero-stats{
+html:not(.js) .hero-kicker,html:not(.js) .hero-lead,html:not(.js) .hero-modes,html:not(.js) .hero-actions,html:not(.js) .hero-stats{
   opacity:1; transform:none; animation:none;
 }
 @media (prefers-reduced-motion:reduce){
-  .hero-kicker,.hero-lead,.hero-actions,.hero-stats{ opacity:1; transform:none; animation:none; }
+  .hero-kicker,.hero-lead,.hero-modes,.hero-actions,.hero-stats{ opacity:1; transform:none; animation:none; }
 }
 .hero h1{
   font-size:clamp(40px, 6.6vw, 98px);
@@ -318,6 +319,22 @@ html:not(.js) .mask-auto .rl .ri{ transform:none; opacity:1; animation:none; }
   font-size:clamp(13.5px,1.5vw,16.5px); line-height:1.65;
   color:rgba(255,255,255,.72);
 }
+.hero-modes{
+  margin-top:clamp(18px,3vh,30px);
+  display:inline-grid; grid-template-columns:repeat(3,1fr);
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.045);
+  backdrop-filter:blur(8px);
+}
+.hero-modes button{
+  min-width:86px; min-height:38px; padding:0 14px;
+  border-right:1px solid rgba(255,255,255,.16);
+  font-family:var(--font-display); font-weight:600; text-transform:uppercase;
+  letter-spacing:.12em; font-size:10.5px; color:rgba(255,255,255,.58);
+  transition:background .25s var(--ease), color .25s var(--ease);
+}
+.hero-modes button:last-child{ border-right:0; }
+.hero-modes button:hover,.hero-modes button.active{ background:var(--white); color:var(--ink); }
 .hero-actions{ margin-top:clamp(20px,3.2vh,34px); display:flex; flex-wrap:wrap; gap:12px; }
 .hero-stats{
   margin-top:clamp(22px,4vh,44px);
@@ -342,12 +359,50 @@ html:not(.js) .mask-auto .rl .ri{ transform:none; opacity:1; animation:none; }
 .hero-car{
   position:relative; height:min(82svh,760px); min-height:300px;
   margin-right:clamp(-40px,-3vw,-8px);
+  isolation:isolate;
+}
+.hero-car::before{
+  content:""; position:absolute; left:9%; right:5%; bottom:11%; height:22%;
+  border-radius:50%; background:radial-gradient(ellipse at center, rgba(228,35,26,.28), rgba(228,35,26,0) 64%);
+  filter:blur(18px); transform:skewX(-12deg); z-index:0; pointer-events:none;
+}
+.hero-car::after{
+  content:""; position:absolute; left:7%; right:2%; bottom:15%; height:1px; z-index:1;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent);
+  opacity:.45; transform:skewX(-18deg); pointer-events:none;
 }
 .hero-car-fallback{
   position:absolute; inset:8% 2% 6% 2%; width:96%; height:86%;
   object-fit:cover; opacity:.72; filter:saturate(.92) contrast(1.05);
   transform:skewX(-2deg); clip-path:polygon(9% 0,100% 0,91% 100%,0 100%);
 }
+.hero-telemetry{
+  position:absolute; right:clamp(8px,2vw,26px); bottom:clamp(30px,7vh,78px); z-index:5;
+  width:min(300px,42vw); color:#fff;
+  border:1px solid rgba(255,255,255,.22);
+  background:linear-gradient(135deg, rgba(10,11,12,.86), rgba(31,34,37,.58));
+  backdrop-filter:blur(12px); box-shadow:0 24px 60px rgba(0,0,0,.34);
+}
+.telemetry-top{
+  display:flex; justify-content:space-between; gap:14px; align-items:center;
+  padding:12px 14px; border-bottom:1px solid rgba(255,255,255,.16);
+}
+.telemetry-top span,.telemetry-top b{
+  font-family:var(--font-display); font-size:10px; text-transform:uppercase; letter-spacing:.14em;
+}
+.telemetry-top span{ color:rgba(255,255,255,.62); }
+.telemetry-top b{ color:var(--signal); font-weight:600; white-space:nowrap; }
+.telemetry-grid{ display:grid; grid-template-columns:repeat(3,1fr); }
+.telemetry-grid div{ padding:14px 12px 13px; border-right:1px solid rgba(255,255,255,.14); }
+.telemetry-grid div:last-child{ border-right:0; }
+.telemetry-grid b{ display:block; font-family:var(--font-display); font-weight:700; font-size:clamp(20px,2.8vw,32px); line-height:1; }
+.telemetry-grid span{ display:block; margin-top:5px; font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.52); }
+.telemetry-bars{ display:grid; gap:6px; padding:0 14px 14px; }
+.telemetry-bars span{ height:3px; background:rgba(255,255,255,.14); overflow:hidden; }
+.telemetry-bars i{ display:block; height:100%; background:linear-gradient(90deg, var(--signal), #fff); transform-origin:left; }
+.bar-power{ width:92%; }
+.bar-torque{ width:78%; }
+.bar-response{ width:86%; }
 .hero-car model-viewer{
   position:relative; z-index:2;
   width:100%; height:100%; display:block;
@@ -410,6 +465,7 @@ html:not(.js) .mask-auto .rl .ri{ transform:none; opacity:1; animation:none; }
   .hero-car{ order:2; height:44svh; min-height:240px; margin-right:0; }
   .hero-car model-viewer{ display:none; }
   .hero-car-fallback{ inset:0; width:100%; height:100%; opacity:.82; }
+  .hero-telemetry{ left:14px; right:14px; bottom:14px; width:auto; }
   .hero-scroll{ display:none; }
   .hero-kicker{ white-space:normal; }
 }
@@ -427,6 +483,9 @@ html:not(.js) .mask-auto .rl .ri{ transform:none; opacity:1; animation:none; }
 @media (max-width:460px){
   .hero-stats{ flex-wrap:wrap; gap:10px 0; }
   .hero-stats li{ border-right:0; padding-right:0; margin-right:22px; }
+  .hero-modes{ width:100%; }
+  .hero-modes button{ min-width:0; padding-inline:8px; }
+  .telemetry-top{ flex-direction:column; align-items:flex-start; gap:2px; }
 }
 
 /* ============================================================ MARQUEE */
@@ -597,6 +656,10 @@ html:not(.js) .mask-auto .rl .ri{ transform:none; opacity:1; animation:none; }
   display:flex; align-items:center; justify-content:center;
   transition:background .3s var(--ease), border-color .3s var(--ease);
 }
+.hotspot--aero{ top:78%; left:64%; }
+.hotspot--wheels{ top:70%; left:27%; }
+.hotspot--exhaust{ top:60%; left:13%; }
+.hotspot--power{ top:46%; left:42%; }
 .hotspot::before{ content:""; width:6px; height:6px; border-radius:50%; background:#fff; }
 .hotspot::after{
   content:""; position:absolute; inset:-8px; border-radius:50%;
